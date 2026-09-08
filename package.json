@@ -1,1 +1,13 @@
-
+{
+  "name": "aliakbarhyder-profile",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "generate:matrix": "node scripts/generate-matrix.mjs",
+    "generate:terminal": "node scripts/generate-terminal.mjs",
+    "generate:status": "node scripts/generate-status.mjs",
+    "generate:skyline": "node scripts/generate-skyline.mjs",
+    "generate": "npm run generate:matrix && npm run generate:terminal && npm run generate:status && npm run generate:skyline"
+  }
+}
