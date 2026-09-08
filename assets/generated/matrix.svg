@@ -1,132 +1,633 @@
-
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="1000"
-  height="150"
-  viewBox="0 0 1000 150"
+  height="340"
+  viewBox="0 0 1000 340"
   role="img"
-  aria-label="Animated Matrix text"
+  aria-label="Matrix identity animation"
 >
   <defs>
 
-    <filter id="glow">
-      <feGaussianBlur
-        stdDeviation="3"
-        result="coloredBlur"
-      />
-
-      <feMerge>
-        <feMergeNode in="coloredBlur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
-
     <linearGradient
-      id="background"
+      id="matrixBackground"
       x1="0"
       y1="0"
       x2="1"
       y2="1"
     >
-      <stop offset="0%" stop-color="#05080a"/>
-      <stop offset="100%" stop-color="#0d1117"/>
+      <stop offset="0%" stop-color="#020604"/>
+      <stop offset="55%" stop-color="#07110a"/>
+      <stop offset="100%" stop-color="#020403"/>
     </linearGradient>
+
+    <linearGradient
+      id="matrixName"
+      x1="0"
+      y1="0"
+      x2="1"
+      y2="0"
+    >
+      <stop offset="0%" stop-color="#007a30"/>
+      <stop offset="45%" stop-color="#00ff66"/>
+      <stop offset="100%" stop-color="#9cffbd"/>
+    </linearGradient>
+
+    <filter id="greenGlow">
+      <feGaussianBlur
+        stdDeviation="4"
+        result="blur"
+      />
+
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <clipPath id="matrixClip">
+      <rect
+        x="0"
+        y="0"
+        width="1000"
+        height="340"
+        rx="24"
+      />
+    </clipPath>
 
   </defs>
 
   <rect
-    width="100%"
-    height="100%"
-    rx="18"
-    fill="url(#background)"
+    width="1000"
+    height="340"
+    rx="24"
+    fill="url(#matrixBackground)"
+    stroke="#00ff6633"
   />
 
-  <g
-    font-family="JetBrains Mono, SFMono-Regular, Consolas, monospace"
-    font-size="34"
-    font-weight="700"
-    fill="#00ff66"
-    filter="url(#glow)"
-  >
+  <g clip-path="url(#matrixClip)">
     
-    <text
-      x="50%"
-      y="50%"
-      text-anchor="middle"
-      dominant-baseline="middle"
-      class="message message-0"
-    >
-      ALI AKBAR HYDER
-    </text>
-  
-    <text
-      x="50%"
-      y="50%"
-      text-anchor="middle"
-      dominant-baseline="middle"
-      class="message message-1"
-    >
-      BUILDING WHAT'S NEXT
-    </text>
-  
-    <text
-      x="50%"
-      y="50%"
-      text-anchor="middle"
-      dominant-baseline="middle"
-      class="message message-2"
-    >
-      EXPERIMENT • BUILD • IMPROVE
-    </text>
-  
+        <text
+          x="35"
+          y="-250"
+          font-family="monospace"
+          font-size="16"
+          fill="#00ff66"
+          opacity="0.32"
+        >
+          <tspan x="35" dy="22">1</tspan><tspan x="35" dy="22">1</tspan><tspan x="35" dy="22">1</tspan><tspan x="35" dy="22">0</tspan><tspan x="35" dy="22">1</tspan><tspan x="35" dy="22">0</tspan><tspan x="35" dy="22">1</tspan><tspan x="35" dy="22">0</tspan><tspan x="35" dy="22">1</tspan><tspan x="35" dy="22">1</tspan><tspan x="35" dy="22">0</tspan><tspan x="35" dy="22">1</tspan><tspan x="35" dy="22">0</tspan><tspan x="35" dy="22">1</tspan><tspan x="35" dy="22">1</tspan><tspan x="35" dy="22">1</tspan><tspan x="35" dy="22">0</tspan><tspan x="35" dy="22">0</tspan>
+
+          <animateTransform
+            attributeName="transform"
+            type="translate"
+            from="0 -280"
+            to="0 900"
+            dur="9s"
+            begin="0s"
+            repeatCount="indefinite"
+          />
+        </text>
+      
+        <text
+          x="77"
+          y="-250"
+          font-family="monospace"
+          font-size="16"
+          fill="#00ff66"
+          opacity="0.32"
+        >
+          <tspan x="77" dy="22">0</tspan><tspan x="77" dy="22">0</tspan><tspan x="77" dy="22">0</tspan><tspan x="77" dy="22">1</tspan><tspan x="77" dy="22">0</tspan><tspan x="77" dy="22">1</tspan><tspan x="77" dy="22">0</tspan><tspan x="77" dy="22">0</tspan><tspan x="77" dy="22">1</tspan><tspan x="77" dy="22">0</tspan><tspan x="77" dy="22">1</tspan><tspan x="77" dy="22">1</tspan><tspan x="77" dy="22">0</tspan><tspan x="77" dy="22">1</tspan><tspan x="77" dy="22">0</tspan><tspan x="77" dy="22">0</tspan><tspan x="77" dy="22">1</tspan><tspan x="77" dy="22">0</tspan>
+
+          <animateTransform
+            attributeName="transform"
+            type="translate"
+            from="0 -280"
+            to="0 900"
+            dur="10s"
+            begin="-0.7s"
+            repeatCount="indefinite"
+          />
+        </text>
+      
+        <text
+          x="119"
+          y="-250"
+          font-family="monospace"
+          font-size="16"
+          fill="#00ff66"
+          opacity="0.32"
+        >
+          <tspan x="119" dy="22">0</tspan><tspan x="119" dy="22">0</tspan><tspan x="119" dy="22">1</tspan><tspan x="119" dy="22">0</tspan><tspan x="119" dy="22">0</tspan><tspan x="119" dy="22">1</tspan><tspan x="119" dy="22">1</tspan><tspan x="119" dy="22">1</tspan><tspan x="119" dy="22">0</tspan><tspan x="119" dy="22">0</tspan><tspan x="119" dy="22">0</tspan><tspan x="119" dy="22">0</tspan><tspan x="119" dy="22">0</tspan><tspan x="119" dy="22">1</tspan><tspan x="119" dy="22">1</tspan><tspan x="119" dy="22">0</tspan><tspan x="119" dy="22">1</tspan><tspan x="119" dy="22">0</tspan>
+
+          <animateTransform
+            attributeName="transform"
+            type="translate"
+            from="0 -280"
+            to="0 900"
+            dur="11s"
+            begin="-1.4s"
+            repeatCount="indefinite"
+          />
+        </text>
+      
+        <text
+          x="161"
+          y="-250"
+          font-family="monospace"
+          font-size="16"
+          fill="#00ff66"
+          opacity="0.32"
+        >
+          <tspan x="161" dy="22">0</tspan><tspan x="161" dy="22">0</tspan><tspan x="161" dy="22">0</tspan><tspan x="161" dy="22">0</tspan><tspan x="161" dy="22">0</tspan><tspan x="161" dy="22">0</tspan><tspan x="161" dy="22">1</tspan><tspan x="161" dy="22">1</tspan><tspan x="161" dy="22">0</tspan><tspan x="161" dy="22">0</tspan><tspan x="161" dy="22">0</tspan><tspan x="161" dy="22">0</tspan><tspan x="161" dy="22">0</tspan><tspan x="161" dy="22">0</tspan><tspan x="161" dy="22">1</tspan><tspan x="161" dy="22">1</tspan><tspan x="161" dy="22">0</tspan><tspan x="161" dy="22">1</tspan>
+
+          <animateTransform
+            attributeName="transform"
+            type="translate"
+            from="0 -280"
+            to="0 900"
+            dur="12s"
+            begin="-2.0999999999999996s"
+            repeatCount="indefinite"
+          />
+        </text>
+      
+        <text
+          x="203"
+          y="-250"
+          font-family="monospace"
+          font-size="16"
+          fill="#00ff66"
+          opacity="0.32"
+        >
+          <tspan x="203" dy="22">0</tspan><tspan x="203" dy="22">1</tspan><tspan x="203" dy="22">0</tspan><tspan x="203" dy="22">0</tspan><tspan x="203" dy="22">1</tspan><tspan x="203" dy="22">1</tspan><tspan x="203" dy="22">0</tspan><tspan x="203" dy="22">1</tspan><tspan x="203" dy="22">1</tspan><tspan x="203" dy="22">1</tspan><tspan x="203" dy="22">1</tspan><tspan x="203" dy="22">1</tspan><tspan x="203" dy="22">1</tspan><tspan x="203" dy="22">0</tspan><tspan x="203" dy="22">0</tspan><tspan x="203" dy="22">0</tspan><tspan x="203" dy="22">1</tspan><tspan x="203" dy="22">0</tspan>
+
+          <animateTransform
+            attributeName="transform"
+            type="translate"
+            from="0 -280"
+            to="0 900"
+            dur="13s"
+            begin="-2.8s"
+            repeatCount="indefinite"
+          />
+        </text>
+      
+        <text
+          x="245"
+          y="-250"
+          font-family="monospace"
+          font-size="16"
+          fill="#00ff66"
+          opacity="0.32"
+        >
+          <tspan x="245" dy="22">0</tspan><tspan x="245" dy="22">0</tspan><tspan x="245" dy="22">1</tspan><tspan x="245" dy="22">1</tspan><tspan x="245" dy="22">0</tspan><tspan x="245" dy="22">0</tspan><tspan x="245" dy="22">0</tspan><tspan x="245" dy="22">1</tspan><tspan x="245" dy="22">0</tspan><tspan x="245" dy="22">0</tspan><tspan x="245" dy="22">1</tspan><tspan x="245" dy="22">0</tspan><tspan x="245" dy="22">0</tspan><tspan x="245" dy="22">1</tspan><tspan x="245" dy="22">0</tspan><tspan x="245" dy="22">0</tspan><tspan x="245" dy="22">0</tspan><tspan x="245" dy="22">0</tspan>
+
+          <animateTransform
+            attributeName="transform"
+            type="translate"
+            from="0 -280"
+            to="0 900"
+            dur="9s"
+            begin="-3.5s"
+            repeatCount="indefinite"
+          />
+        </text>
+      
+        <text
+          x="287"
+          y="-250"
+          font-family="monospace"
+          font-size="16"
+          fill="#00ff66"
+          opacity="0.32"
+        >
+          <tspan x="287" dy="22">0</tspan><tspan x="287" dy="22">0</tspan><tspan x="287" dy="22">1</tspan><tspan x="287" dy="22">0</tspan><tspan x="287" dy="22">0</tspan><tspan x="287" dy="22">0</tspan><tspan x="287" dy="22">0</tspan><tspan x="287" dy="22">1</tspan><tspan x="287" dy="22">0</tspan><tspan x="287" dy="22">0</tspan><tspan x="287" dy="22">1</tspan><tspan x="287" dy="22">0</tspan><tspan x="287" dy="22">0</tspan><tspan x="287" dy="22">1</tspan><tspan x="287" dy="22">1</tspan><tspan x="287" dy="22">1</tspan><tspan x="287" dy="22">0</tspan><tspan x="287" dy="22">1</tspan>
+
+          <animateTransform
+            attributeName="transform"
+            type="translate"
+            from="0 -280"
+            to="0 900"
+            dur="10s"
+            begin="-4.199999999999999s"
+            repeatCount="indefinite"
+          />
+        </text>
+      
+        <text
+          x="329"
+          y="-250"
+          font-family="monospace"
+          font-size="16"
+          fill="#00ff66"
+          opacity="0.32"
+        >
+          <tspan x="329" dy="22">0</tspan><tspan x="329" dy="22">0</tspan><tspan x="329" dy="22">0</tspan><tspan x="329" dy="22">0</tspan><tspan x="329" dy="22">0</tspan><tspan x="329" dy="22">0</tspan><tspan x="329" dy="22">1</tspan><tspan x="329" dy="22">0</tspan><tspan x="329" dy="22">1</tspan><tspan x="329" dy="22">0</tspan><tspan x="329" dy="22">0</tspan><tspan x="329" dy="22">0</tspan><tspan x="329" dy="22">1</tspan><tspan x="329" dy="22">0</tspan><tspan x="329" dy="22">0</tspan><tspan x="329" dy="22">1</tspan><tspan x="329" dy="22">0</tspan><tspan x="329" dy="22">0</tspan>
+
+          <animateTransform
+            attributeName="transform"
+            type="translate"
+            from="0 -280"
+            to="0 900"
+            dur="11s"
+            begin="-4.8999999999999995s"
+            repeatCount="indefinite"
+          />
+        </text>
+      
+        <text
+          x="371"
+          y="-250"
+          font-family="monospace"
+          font-size="16"
+          fill="#00ff66"
+          opacity="0.32"
+        >
+          <tspan x="371" dy="22">0</tspan><tspan x="371" dy="22">1</tspan><tspan x="371" dy="22">0</tspan><tspan x="371" dy="22">1</tspan><tspan x="371" dy="22">1</tspan><tspan x="371" dy="22">1</tspan><tspan x="371" dy="22">0</tspan><tspan x="371" dy="22">1</tspan><tspan x="371" dy="22">1</tspan><tspan x="371" dy="22">1</tspan><tspan x="371" dy="22">0</tspan><tspan x="371" dy="22">1</tspan><tspan x="371" dy="22">1</tspan><tspan x="371" dy="22">0</tspan><tspan x="371" dy="22">0</tspan><tspan x="371" dy="22">1</tspan><tspan x="371" dy="22">1</tspan><tspan x="371" dy="22">1</tspan>
+
+          <animateTransform
+            attributeName="transform"
+            type="translate"
+            from="0 -280"
+            to="0 900"
+            dur="12s"
+            begin="-5.6s"
+            repeatCount="indefinite"
+          />
+        </text>
+      
+        <text
+          x="413"
+          y="-250"
+          font-family="monospace"
+          font-size="16"
+          fill="#00ff66"
+          opacity="0.32"
+        >
+          <tspan x="413" dy="22">0</tspan><tspan x="413" dy="22">0</tspan><tspan x="413" dy="22">0</tspan><tspan x="413" dy="22">0</tspan><tspan x="413" dy="22">0</tspan><tspan x="413" dy="22">0</tspan><tspan x="413" dy="22">0</tspan><tspan x="413" dy="22">1</tspan><tspan x="413" dy="22">1</tspan><tspan x="413" dy="22">1</tspan><tspan x="413" dy="22">0</tspan><tspan x="413" dy="22">0</tspan><tspan x="413" dy="22">1</tspan><tspan x="413" dy="22">0</tspan><tspan x="413" dy="22">0</tspan><tspan x="413" dy="22">0</tspan><tspan x="413" dy="22">0</tspan><tspan x="413" dy="22">1</tspan>
+
+          <animateTransform
+            attributeName="transform"
+            type="translate"
+            from="0 -280"
+            to="0 900"
+            dur="13s"
+            begin="-6.3s"
+            repeatCount="indefinite"
+          />
+        </text>
+      
+        <text
+          x="455"
+          y="-250"
+          font-family="monospace"
+          font-size="16"
+          fill="#00ff66"
+          opacity="0.32"
+        >
+          <tspan x="455" dy="22">1</tspan><tspan x="455" dy="22">0</tspan><tspan x="455" dy="22">1</tspan><tspan x="455" dy="22">1</tspan><tspan x="455" dy="22">0</tspan><tspan x="455" dy="22">0</tspan><tspan x="455" dy="22">0</tspan><tspan x="455" dy="22">1</tspan><tspan x="455" dy="22">1</tspan><tspan x="455" dy="22">0</tspan><tspan x="455" dy="22">1</tspan><tspan x="455" dy="22">0</tspan><tspan x="455" dy="22">0</tspan><tspan x="455" dy="22">0</tspan><tspan x="455" dy="22">0</tspan><tspan x="455" dy="22">0</tspan><tspan x="455" dy="22">1</tspan><tspan x="455" dy="22">1</tspan>
+
+          <animateTransform
+            attributeName="transform"
+            type="translate"
+            from="0 -280"
+            to="0 900"
+            dur="9s"
+            begin="-7s"
+            repeatCount="indefinite"
+          />
+        </text>
+      
+        <text
+          x="497"
+          y="-250"
+          font-family="monospace"
+          font-size="16"
+          fill="#00ff66"
+          opacity="0.32"
+        >
+          <tspan x="497" dy="22">0</tspan><tspan x="497" dy="22">1</tspan><tspan x="497" dy="22">0</tspan><tspan x="497" dy="22">0</tspan><tspan x="497" dy="22">0</tspan><tspan x="497" dy="22">0</tspan><tspan x="497" dy="22">0</tspan><tspan x="497" dy="22">0</tspan><tspan x="497" dy="22">0</tspan><tspan x="497" dy="22">1</tspan><tspan x="497" dy="22">0</tspan><tspan x="497" dy="22">0</tspan><tspan x="497" dy="22">0</tspan><tspan x="497" dy="22">1</tspan><tspan x="497" dy="22">0</tspan><tspan x="497" dy="22">1</tspan><tspan x="497" dy="22">0</tspan><tspan x="497" dy="22">0</tspan>
+
+          <animateTransform
+            attributeName="transform"
+            type="translate"
+            from="0 -280"
+            to="0 900"
+            dur="10s"
+            begin="-7.699999999999999s"
+            repeatCount="indefinite"
+          />
+        </text>
+      
+        <text
+          x="539"
+          y="-250"
+          font-family="monospace"
+          font-size="16"
+          fill="#00ff66"
+          opacity="0.32"
+        >
+          <tspan x="539" dy="22">0</tspan><tspan x="539" dy="22">1</tspan><tspan x="539" dy="22">1</tspan><tspan x="539" dy="22">0</tspan><tspan x="539" dy="22">1</tspan><tspan x="539" dy="22">1</tspan><tspan x="539" dy="22">1</tspan><tspan x="539" dy="22">0</tspan><tspan x="539" dy="22">0</tspan><tspan x="539" dy="22">0</tspan><tspan x="539" dy="22">1</tspan><tspan x="539" dy="22">0</tspan><tspan x="539" dy="22">1</tspan><tspan x="539" dy="22">0</tspan><tspan x="539" dy="22">1</tspan><tspan x="539" dy="22">0</tspan><tspan x="539" dy="22">0</tspan><tspan x="539" dy="22">1</tspan>
+
+          <animateTransform
+            attributeName="transform"
+            type="translate"
+            from="0 -280"
+            to="0 900"
+            dur="11s"
+            begin="-8.399999999999999s"
+            repeatCount="indefinite"
+          />
+        </text>
+      
+        <text
+          x="581"
+          y="-250"
+          font-family="monospace"
+          font-size="16"
+          fill="#00ff66"
+          opacity="0.32"
+        >
+          <tspan x="581" dy="22">1</tspan><tspan x="581" dy="22">0</tspan><tspan x="581" dy="22">1</tspan><tspan x="581" dy="22">0</tspan><tspan x="581" dy="22">0</tspan><tspan x="581" dy="22">0</tspan><tspan x="581" dy="22">1</tspan><tspan x="581" dy="22">1</tspan><tspan x="581" dy="22">1</tspan><tspan x="581" dy="22">1</tspan><tspan x="581" dy="22">0</tspan><tspan x="581" dy="22">1</tspan><tspan x="581" dy="22">1</tspan><tspan x="581" dy="22">0</tspan><tspan x="581" dy="22">0</tspan><tspan x="581" dy="22">1</tspan><tspan x="581" dy="22">1</tspan><tspan x="581" dy="22">0</tspan>
+
+          <animateTransform
+            attributeName="transform"
+            type="translate"
+            from="0 -280"
+            to="0 900"
+            dur="12s"
+            begin="-9.1s"
+            repeatCount="indefinite"
+          />
+        </text>
+      
+        <text
+          x="623"
+          y="-250"
+          font-family="monospace"
+          font-size="16"
+          fill="#00ff66"
+          opacity="0.32"
+        >
+          <tspan x="623" dy="22">0</tspan><tspan x="623" dy="22">1</tspan><tspan x="623" dy="22">0</tspan><tspan x="623" dy="22">0</tspan><tspan x="623" dy="22">1</tspan><tspan x="623" dy="22">1</tspan><tspan x="623" dy="22">0</tspan><tspan x="623" dy="22">0</tspan><tspan x="623" dy="22">0</tspan><tspan x="623" dy="22">0</tspan><tspan x="623" dy="22">1</tspan><tspan x="623" dy="22">1</tspan><tspan x="623" dy="22">1</tspan><tspan x="623" dy="22">1</tspan><tspan x="623" dy="22">0</tspan><tspan x="623" dy="22">1</tspan><tspan x="623" dy="22">0</tspan><tspan x="623" dy="22">0</tspan>
+
+          <animateTransform
+            attributeName="transform"
+            type="translate"
+            from="0 -280"
+            to="0 900"
+            dur="13s"
+            begin="-9.799999999999999s"
+            repeatCount="indefinite"
+          />
+        </text>
+      
+        <text
+          x="665"
+          y="-250"
+          font-family="monospace"
+          font-size="16"
+          fill="#00ff66"
+          opacity="0.32"
+        >
+          <tspan x="665" dy="22">1</tspan><tspan x="665" dy="22">0</tspan><tspan x="665" dy="22">0</tspan><tspan x="665" dy="22">0</tspan><tspan x="665" dy="22">0</tspan><tspan x="665" dy="22">1</tspan><tspan x="665" dy="22">1</tspan><tspan x="665" dy="22">1</tspan><tspan x="665" dy="22">0</tspan><tspan x="665" dy="22">0</tspan><tspan x="665" dy="22">1</tspan><tspan x="665" dy="22">1</tspan><tspan x="665" dy="22">0</tspan><tspan x="665" dy="22">0</tspan><tspan x="665" dy="22">0</tspan><tspan x="665" dy="22">1</tspan><tspan x="665" dy="22">0</tspan><tspan x="665" dy="22">0</tspan>
+
+          <animateTransform
+            attributeName="transform"
+            type="translate"
+            from="0 -280"
+            to="0 900"
+            dur="9s"
+            begin="-10.5s"
+            repeatCount="indefinite"
+          />
+        </text>
+      
+        <text
+          x="707"
+          y="-250"
+          font-family="monospace"
+          font-size="16"
+          fill="#00ff66"
+          opacity="0.32"
+        >
+          <tspan x="707" dy="22">1</tspan><tspan x="707" dy="22">0</tspan><tspan x="707" dy="22">0</tspan><tspan x="707" dy="22">1</tspan><tspan x="707" dy="22">1</tspan><tspan x="707" dy="22">0</tspan><tspan x="707" dy="22">1</tspan><tspan x="707" dy="22">0</tspan><tspan x="707" dy="22">0</tspan><tspan x="707" dy="22">1</tspan><tspan x="707" dy="22">1</tspan><tspan x="707" dy="22">0</tspan><tspan x="707" dy="22">0</tspan><tspan x="707" dy="22">1</tspan><tspan x="707" dy="22">0</tspan><tspan x="707" dy="22">0</tspan><tspan x="707" dy="22">0</tspan><tspan x="707" dy="22">1</tspan>
+
+          <animateTransform
+            attributeName="transform"
+            type="translate"
+            from="0 -280"
+            to="0 900"
+            dur="10s"
+            begin="-11.2s"
+            repeatCount="indefinite"
+          />
+        </text>
+      
+        <text
+          x="749"
+          y="-250"
+          font-family="monospace"
+          font-size="16"
+          fill="#00ff66"
+          opacity="0.32"
+        >
+          <tspan x="749" dy="22">0</tspan><tspan x="749" dy="22">0</tspan><tspan x="749" dy="22">1</tspan><tspan x="749" dy="22">0</tspan><tspan x="749" dy="22">1</tspan><tspan x="749" dy="22">1</tspan><tspan x="749" dy="22">0</tspan><tspan x="749" dy="22">1</tspan><tspan x="749" dy="22">1</tspan><tspan x="749" dy="22">0</tspan><tspan x="749" dy="22">1</tspan><tspan x="749" dy="22">1</tspan><tspan x="749" dy="22">1</tspan><tspan x="749" dy="22">0</tspan><tspan x="749" dy="22">1</tspan><tspan x="749" dy="22">0</tspan><tspan x="749" dy="22">1</tspan><tspan x="749" dy="22">1</tspan>
+
+          <animateTransform
+            attributeName="transform"
+            type="translate"
+            from="0 -280"
+            to="0 900"
+            dur="11s"
+            begin="-11.899999999999999s"
+            repeatCount="indefinite"
+          />
+        </text>
+      
+        <text
+          x="791"
+          y="-250"
+          font-family="monospace"
+          font-size="16"
+          fill="#00ff66"
+          opacity="0.32"
+        >
+          <tspan x="791" dy="22">1</tspan><tspan x="791" dy="22">1</tspan><tspan x="791" dy="22">1</tspan><tspan x="791" dy="22">1</tspan><tspan x="791" dy="22">0</tspan><tspan x="791" dy="22">1</tspan><tspan x="791" dy="22">0</tspan><tspan x="791" dy="22">0</tspan><tspan x="791" dy="22">0</tspan><tspan x="791" dy="22">0</tspan><tspan x="791" dy="22">1</tspan><tspan x="791" dy="22">0</tspan><tspan x="791" dy="22">0</tspan><tspan x="791" dy="22">0</tspan><tspan x="791" dy="22">0</tspan><tspan x="791" dy="22">0</tspan><tspan x="791" dy="22">0</tspan><tspan x="791" dy="22">1</tspan>
+
+          <animateTransform
+            attributeName="transform"
+            type="translate"
+            from="0 -280"
+            to="0 900"
+            dur="12s"
+            begin="-12.6s"
+            repeatCount="indefinite"
+          />
+        </text>
+      
+        <text
+          x="833"
+          y="-250"
+          font-family="monospace"
+          font-size="16"
+          fill="#00ff66"
+          opacity="0.32"
+        >
+          <tspan x="833" dy="22">1</tspan><tspan x="833" dy="22">1</tspan><tspan x="833" dy="22">0</tspan><tspan x="833" dy="22">1</tspan><tspan x="833" dy="22">1</tspan><tspan x="833" dy="22">1</tspan><tspan x="833" dy="22">1</tspan><tspan x="833" dy="22">0</tspan><tspan x="833" dy="22">1</tspan><tspan x="833" dy="22">0</tspan><tspan x="833" dy="22">0</tspan><tspan x="833" dy="22">0</tspan><tspan x="833" dy="22">0</tspan><tspan x="833" dy="22">1</tspan><tspan x="833" dy="22">0</tspan><tspan x="833" dy="22">0</tspan><tspan x="833" dy="22">1</tspan><tspan x="833" dy="22">1</tspan>
+
+          <animateTransform
+            attributeName="transform"
+            type="translate"
+            from="0 -280"
+            to="0 900"
+            dur="13s"
+            begin="-13.299999999999999s"
+            repeatCount="indefinite"
+          />
+        </text>
+      
+        <text
+          x="875"
+          y="-250"
+          font-family="monospace"
+          font-size="16"
+          fill="#00ff66"
+          opacity="0.32"
+        >
+          <tspan x="875" dy="22">1</tspan><tspan x="875" dy="22">1</tspan><tspan x="875" dy="22">1</tspan><tspan x="875" dy="22">1</tspan><tspan x="875" dy="22">1</tspan><tspan x="875" dy="22">0</tspan><tspan x="875" dy="22">1</tspan><tspan x="875" dy="22">0</tspan><tspan x="875" dy="22">1</tspan><tspan x="875" dy="22">0</tspan><tspan x="875" dy="22">1</tspan><tspan x="875" dy="22">0</tspan><tspan x="875" dy="22">1</tspan><tspan x="875" dy="22">1</tspan><tspan x="875" dy="22">1</tspan><tspan x="875" dy="22">1</tspan><tspan x="875" dy="22">0</tspan><tspan x="875" dy="22">0</tspan>
+
+          <animateTransform
+            attributeName="transform"
+            type="translate"
+            from="0 -280"
+            to="0 900"
+            dur="9s"
+            begin="-14s"
+            repeatCount="indefinite"
+          />
+        </text>
+      
+        <text
+          x="917"
+          y="-250"
+          font-family="monospace"
+          font-size="16"
+          fill="#00ff66"
+          opacity="0.32"
+        >
+          <tspan x="917" dy="22">0</tspan><tspan x="917" dy="22">0</tspan><tspan x="917" dy="22">0</tspan><tspan x="917" dy="22">0</tspan><tspan x="917" dy="22">1</tspan><tspan x="917" dy="22">0</tspan><tspan x="917" dy="22">0</tspan><tspan x="917" dy="22">1</tspan><tspan x="917" dy="22">0</tspan><tspan x="917" dy="22">0</tspan><tspan x="917" dy="22">0</tspan><tspan x="917" dy="22">0</tspan><tspan x="917" dy="22">1</tspan><tspan x="917" dy="22">0</tspan><tspan x="917" dy="22">1</tspan><tspan x="917" dy="22">0</tspan><tspan x="917" dy="22">0</tspan><tspan x="917" dy="22">1</tspan>
+
+          <animateTransform
+            attributeName="transform"
+            type="translate"
+            from="0 -280"
+            to="0 900"
+            dur="10s"
+            begin="-14.7s"
+            repeatCount="indefinite"
+          />
+        </text>
+      
   </g>
 
-  <style>
+  <rect
+    x="1"
+    y="1"
+    width="998"
+    height="338"
+    rx="24"
+    fill="none"
+    stroke="#00ff6644"
+  />
 
-    .message {
-      opacity: 0;
-      animation: cycle 15s infinite;
-    }
+  <text
+    x="500"
+    y="130"
+    text-anchor="middle"
+    font-family="monospace"
+    font-size="14"
+    letter-spacing="7"
+    fill="#00b84d"
+  >
+    SYSTEM.IDENTITY
+  </text>
 
-    .message-0 {
-      animation-delay: 0s;
-    }
+  <text
+    x="500"
+    y="205"
+    text-anchor="middle"
+    font-family="monospace"
+    font-size="52"
+    font-weight="700"
+    letter-spacing="5"
+    fill="url(#matrixName)"
+    filter="url(#greenGlow)"
+  >
+    ALI AKBAR HYDER
 
-    .message-1 {
-      animation-delay: 5s;
-    }
+    <animate
+      attributeName="opacity"
+      values="1;0.82;1;0.9;1"
+      dur="3.5s"
+      repeatCount="indefinite"
+    />
+  </text>
 
-    .message-2 {
-      animation-delay: 10s;
-    }
+  <text
+    x="500"
+    y="248"
+    text-anchor="middle"
+    font-family="monospace"
+    font-size="15"
+    letter-spacing="4"
+    fill="#6dff98"
+    opacity="0.75"
+  >
+    010101001101010100101101010101010110101001010101101010100101010101101010010101010110101001010101010101001010101010101
 
-    @keyframes cycle {
+    <animate
+      attributeName="opacity"
+      values="0.3;0.9;0.45;0.8;0.3"
+      dur="4s"
+      repeatCount="indefinite"
+    />
+  </text>
 
-      0% {
-        opacity: 0;
-        transform: translateY(12px);
-      }
+  <line
+    x1="340"
+    y1="280"
+    x2="660"
+    y2="280"
+    stroke="#00ff66"
+    stroke-width="1"
+    opacity="0.4"
+  >
+    <animate
+      attributeName="opacity"
+      values="0.15;0.8;0.15"
+      dur="2.4s"
+      repeatCount="indefinite"
+    />
+  </line>
 
-      8% {
-        opacity: 1;
-        transform: translateY(0);
-      }
+  <text
+    x="500"
+    y="312"
+    text-anchor="middle"
+    font-family="monospace"
+    font-size="12"
+    letter-spacing="3"
+    fill="#00ff66"
+    opacity="0.7"
+  >
+    [ MATRIX ONLINE ]
 
-      28% {
-        opacity: 1;
-      }
-
-      33% {
-        opacity: 0;
-        transform: translateY(-10px);
-      }
-
-      100% {
-        opacity: 0;
-      }
-
-    }
-
-  </style>
+    <animate
+      attributeName="opacity"
+      values="0.25;1;0.25"
+      dur="2s"
+      repeatCount="indefinite"
+    />
+  </text>
 
 </svg>

@@ -1,359 +1,169 @@
-
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="1000"
-  height="120"
-  viewBox="0 0 1000 120"
+  height="300"
+  viewBox="0 0 1000 300"
+  role="img"
+  aria-label="Live system status"
 >
+  <defs>
+
+    <linearGradient
+      id="statusBackground"
+      x1="0"
+      y1="0"
+      x2="1"
+      y2="1"
+    >
+      <stop offset="0%" stop-color="#030604"/>
+      <stop offset="100%" stop-color="#08120b"/>
+    </linearGradient>
+
+    <linearGradient
+      id="progressGradient"
+      x1="0"
+      y1="0"
+      x2="1"
+      y2="0"
+    >
+      <stop offset="0%" stop-color="#007c32"/>
+      <stop offset="55%" stop-color="#00ff66"/>
+      <stop offset="100%" stop-color="#8cffae"/>
+    </linearGradient>
+
+    <filter id="statusGlow">
+      <feGaussianBlur
+        stdDeviation="5"
+        result="blur"
+      />
+
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+  </defs>
+
   <rect
-    width="100%"
-    height="100%"
-    rx="18"
-    fill="#0d1117"
-    stroke="#30363d"
+    width="1000"
+    height="300"
+    rx="24"
+    fill="url(#statusBackground)"
+    stroke="#00ff6640"
   />
 
-  <g
-    fill="#00d9ff"
-    font-family="JetBrains Mono, monospace"
-    font-size="22"
-    font-weight="700"
+  <circle
+    cx="72"
+    cy="72"
+    r="7"
+    fill="#00ff66"
+    filter="url(#statusGlow)"
   >
+    <animate
+      attributeName="opacity"
+      values="0.35;1;0.35"
+      dur="1.6s"
+      repeatCount="indefinite"
+    />
+  </circle>
 
-    
-    <g class="status status-0">
+  <text
+    x="94"
+    y="78"
+    font-family="monospace"
+    font-size="16"
+    letter-spacing="3"
+    fill="#74ff9d"
+  >
+    LIVE SYSTEM STATUS
+  </text>
 
-      <circle
-        cx="330"
-        cy="60"
-        r="7"
-      />
+  <text
+    x="928"
+    y="78"
+    text-anchor="end"
+    font-family="monospace"
+    font-size="13"
+    letter-spacing="2"
+    fill="#00ff66"
+    opacity="0.7"
+  >
+    AUTO-UPDATING
+  </text>
 
-      <text
-        x="355"
-        y="68"
-      >
-        PONDERING...
-      </text>
+  <text
+    x="120"
+    y="145"
+    font-family="monospace"
+    font-size="34"
+    font-weight="700"
+    letter-spacing="4"
+    fill="#00ff66"
+    filter="url(#statusGlow)"
+  >
+    ARCHITECTING
+  </text>
 
-    </g>
-  
-    <g class="status status-1">
+  <text
+    x="122"
+    y="180"
+    font-family="monospace"
+    font-size="16"
+    fill="#8fbf9e"
+  >
+    designing systems before they design themselves...
+  </text>
 
-      <circle
-        cx="330"
-        cy="60"
-        r="7"
-      />
+  <rect
+    x="120"
+    y="215"
+    width="760"
+    height="16"
+    rx="8"
+    fill="#00ff6614"
+    stroke="#00ff6638"
+  />
 
-      <text
-        x="355"
-        y="68"
-      >
-        ANALYZING...
-      </text>
+  <rect
+    x="120"
+    y="215"
+    width="0"
+    height="16"
+    rx="8"
+    fill="url(#progressGradient)"
+    filter="url(#statusGlow)"
+  >
+    <animate
+      attributeName="width"
+      from="0"
+      to="691.6"
+      dur="8s"
+      fill="freeze"
+    />
+  </rect>
 
-    </g>
-  
-    <g class="status status-2">
+  <text
+    x="900"
+    y="265"
+    text-anchor="end"
+    font-family="monospace"
+    font-size="13"
+    fill="#00ff66"
+    opacity="0.7"
+  >
+    91% COMPLETE
+  </text>
 
-      <circle
-        cx="330"
-        cy="60"
-        r="7"
-      />
-
-      <text
-        x="355"
-        y="68"
-      >
-        ARCHITECTING...
-      </text>
-
-    </g>
-  
-    <g class="status status-3">
-
-      <circle
-        cx="330"
-        cy="60"
-        r="7"
-      />
-
-      <text
-        x="355"
-        y="68"
-      >
-        DECODING...
-      </text>
-
-    </g>
-  
-    <g class="status status-4">
-
-      <circle
-        cx="330"
-        cy="60"
-        r="7"
-      />
-
-      <text
-        x="355"
-        y="68"
-      >
-        EXECUTING...
-      </text>
-
-    </g>
-  
-    <g class="status status-5">
-
-      <circle
-        cx="330"
-        cy="60"
-        r="7"
-      />
-
-      <text
-        x="355"
-        y="68"
-      >
-        DEBUGGING...
-      </text>
-
-    </g>
-  
-    <g class="status status-6">
-
-      <circle
-        cx="330"
-        cy="60"
-        r="7"
-      />
-
-      <text
-        x="355"
-        y="68"
-      >
-        REFACTORING...
-      </text>
-
-    </g>
-  
-    <g class="status status-7">
-
-      <circle
-        cx="330"
-        cy="60"
-        r="7"
-      />
-
-      <text
-        x="355"
-        y="68"
-      >
-        OPTIMIZING...
-      </text>
-
-    </g>
-  
-    <g class="status status-8">
-
-      <circle
-        cx="330"
-        cy="60"
-        r="7"
-      />
-
-      <text
-        x="355"
-        y="68"
-      >
-        TESTING...
-      </text>
-
-    </g>
-  
-    <g class="status status-9">
-
-      <circle
-        cx="330"
-        cy="60"
-        r="7"
-      />
-
-      <text
-        x="355"
-        y="68"
-      >
-        DEPLOYING...
-      </text>
-
-    </g>
-  
-    <g class="status status-10">
-
-      <circle
-        cx="330"
-        cy="60"
-        r="7"
-      />
-
-      <text
-        x="355"
-        y="68"
-      >
-        PUBLISHING...
-      </text>
-
-    </g>
-  
-    <g class="status status-11">
-
-      <circle
-        cx="330"
-        cy="60"
-        r="7"
-      />
-
-      <text
-        x="355"
-        y="68"
-      >
-        EXPERIMENTING...
-      </text>
-
-    </g>
-  
-    <g class="status status-12">
-
-      <circle
-        cx="330"
-        cy="60"
-        r="7"
-      />
-
-      <text
-        x="355"
-        y="68"
-      >
-        DISCOMBOBULATING...
-      </text>
-
-    </g>
-  
-    <g class="status status-13">
-
-      <circle
-        cx="330"
-        cy="60"
-        r="7"
-      />
-
-      <text
-        x="355"
-        y="68"
-      >
-        RECOMBOBULATING...
-      </text>
-
-    </g>
-  
-
-  </g>
-
-  <style>
-
-    .status {
-      opacity: 0;
-      animation: statusCycle 56s infinite;
-    }
-
-    
-    .status-0 {
-      animation-delay: 0s;
-    }
-  
-    .status-1 {
-      animation-delay: 4s;
-    }
-  
-    .status-2 {
-      animation-delay: 8s;
-    }
-  
-    .status-3 {
-      animation-delay: 12s;
-    }
-  
-    .status-4 {
-      animation-delay: 16s;
-    }
-  
-    .status-5 {
-      animation-delay: 20s;
-    }
-  
-    .status-6 {
-      animation-delay: 24s;
-    }
-  
-    .status-7 {
-      animation-delay: 28s;
-    }
-  
-    .status-8 {
-      animation-delay: 32s;
-    }
-  
-    .status-9 {
-      animation-delay: 36s;
-    }
-  
-    .status-10 {
-      animation-delay: 40s;
-    }
-  
-    .status-11 {
-      animation-delay: 44s;
-    }
-  
-    .status-12 {
-      animation-delay: 48s;
-    }
-  
-    .status-13 {
-      animation-delay: 52s;
-    }
-  
-
-    @keyframes statusCycle {
-
-      0% {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-
-      4% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      18% {
-        opacity: 1;
-      }
-
-      23% {
-        opacity: 0;
-        transform: translateY(-10px);
-      }
-
-      100% {
-        opacity: 0;
-      }
-
-    }
-
-  </style>
+  <text
+    x="120"
+    y="265"
+    font-family="monospace"
+    font-size="13"
+    letter-spacing="2"
+    fill="#5b966d"
+  >
+    NEXT → ENCRYPTING
+  </text>
 
 </svg>

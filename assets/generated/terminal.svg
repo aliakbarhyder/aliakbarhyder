@@ -1,409 +1,207 @@
-
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="1000"
-  height="390"
-  viewBox="0 0 1000 390"
+  height="360"
+  viewBox="0 0 1000 360"
+  role="img"
+  aria-label="Rotating developer terminal"
 >
+  <defs>
+
+    <linearGradient
+      id="terminalBackground"
+      x1="0"
+      y1="0"
+      x2="1"
+      y2="1"
+    >
+      <stop offset="0%" stop-color="#020403"/>
+      <stop offset="100%" stop-color="#09100b"/>
+    </linearGradient>
+
+  </defs>
+
   <rect
-    width="100%"
-    height="100%"
-    rx="20"
-    fill="#0d1117"
-    stroke="#30363d"
+    width="1000"
+    height="360"
+    rx="24"
+    fill="url(#terminalBackground)"
+    stroke="#00ff6640"
   />
 
-  <circle cx="40" cy="32" r="6" fill="#ff5f57"/>
-  <circle cx="60" cy="32" r="6" fill="#febc2e"/>
-  <circle cx="80" cy="32" r="6" fill="#28c840"/>
+  <rect
+    x="0"
+    y="0"
+    width="1000"
+    height="52"
+    rx="24"
+    fill="#0b140e"
+  />
 
-  <g
-    font-family="JetBrains Mono, SFMono-Regular, Consolas, monospace"
-    font-size="18"
+  <circle
+    cx="48"
+    cy="26"
+    r="7"
+    fill="#00ff66"
+    opacity="0.8"
+  />
+
+  <circle
+    cx="72"
+    cy="26"
+    r="7"
+    fill="#00b84d"
+    opacity="0.55"
+  />
+
+  <circle
+    cx="96"
+    cy="26"
+    r="7"
+    fill="#176f37"
+    opacity="0.45"
+  />
+
+  <text
+    x="500"
+    y="32"
+    text-anchor="middle"
+    font-family="monospace"
+    font-size="14"
+    letter-spacing="3"
+    fill="#7effa3"
+    opacity="0.7"
   >
+    ALI@SYSTEM:~
+  </text>
 
-    
-      <g class="sequence sequence-0">
-        
-              <text
-                x="60"
-                y="80"
-                class="command"
-              >
-                $ ponder --architecture
-              </text>
-            
-              <text
-                x="60"
-                y="122"
-                class="normal"
-              >
-                [INFO] Inspecting the problem...
-              </text>
-            
-              <text
-                x="60"
-                y="164"
-                class="normal"
-              >
-                [INFO] Exploring possible solutions...
-              </text>
-            
-              <text
-                x="60"
-                y="206"
-                class="normal"
-              >
-                [INFO] Thinking harder...
-              </text>
-            
-              <text
-                x="60"
-                y="248"
-                class="success"
-              >
-                [OK] Architecture selected.
-              </text>
-            
-              <text
-                x="60"
-                y="290"
-                class="normal"
-              >
-                
-              </text>
-            
-              <text
-                x="60"
-                y="332"
-                class="command"
-              >
-                $ _
-              </text>
-            
-      </g>
-    
-      <g class="sequence sequence-1">
-        
-              <text
-                x="60"
-                y="80"
-                class="command"
-              >
-                $ analyze --project
-              </text>
-            
-              <text
-                x="60"
-                y="122"
-                class="normal"
-              >
-                [INFO] Scanning architecture...
-              </text>
-            
-              <text
-                x="60"
-                y="164"
-                class="normal"
-              >
-                [INFO] Evaluating implementation...
-              </text>
-            
-              <text
-                x="60"
-                y="206"
-                class="normal"
-              >
-                [INFO] Identifying improvements...
-              </text>
-            
-              <text
-                x="60"
-                y="248"
-                class="success"
-              >
-                [OK] Analysis complete.
-              </text>
-            
-              <text
-                x="60"
-                y="290"
-                class="normal"
-              >
-                
-              </text>
-            
-              <text
-                x="60"
-                y="332"
-                class="command"
-              >
-                $ _
-              </text>
-            
-      </g>
-    
-      <g class="sequence sequence-2">
-        
-              <text
-                x="60"
-                y="80"
-                class="command"
-              >
-                $ debug --deep
-              </text>
-            
-              <text
-                x="60"
-                y="122"
-                class="normal"
-              >
-                [INFO] Searching for issues...
-              </text>
-            
-              <text
-                x="60"
-                y="164"
-                class="normal"
-              >
-                [INFO] Inspecting suspicious behavior...
-              </text>
-            
-              <text
-                x="60"
-                y="206"
-                class="warning"
-              >
-                [WARN] Something looks questionable.
-              </text>
-            
-              <text
-                x="60"
-                y="248"
-                class="normal"
-              >
-                [INFO] Investigating...
-              </text>
-            
-              <text
-                x="60"
-                y="290"
-                class="success"
-              >
-                [OK] Issue resolved.
-              </text>
-            
-              <text
-                x="60"
-                y="332"
-                class="normal"
-              >
-                
-              </text>
-            
-              <text
-                x="60"
-                y="374"
-                class="command"
-              >
-                $ _
-              </text>
-            
-      </g>
-    
-      <g class="sequence sequence-3">
-        
-              <text
-                x="60"
-                y="80"
-                class="command"
-              >
-                $ execute
-              </text>
-            
-              <text
-                x="60"
-                y="122"
-                class="normal"
-              >
-                [INFO] Initializing sequence...
-              </text>
-            
-              <text
-                x="60"
-                y="164"
-                class="normal"
-              >
-                [INFO] Running implementation...
-              </text>
-            
-              <text
-                x="60"
-                y="206"
-                class="normal"
-              >
-                [INFO] Monitoring output...
-              </text>
-            
-              <text
-                x="60"
-                y="248"
-                class="success"
-              >
-                [OK] Execution complete.
-              </text>
-            
-              <text
-                x="60"
-                y="290"
-                class="normal"
-              >
-                
-              </text>
-            
-              <text
-                x="60"
-                y="332"
-                class="command"
-              >
-                $ _
-              </text>
-            
-      </g>
-    
-      <g class="sequence sequence-4">
-        
-              <text
-                x="60"
-                y="80"
-                class="command"
-              >
-                $ publish
-              </text>
-            
-              <text
-                x="60"
-                y="122"
-                class="normal"
-              >
-                [INFO] Preparing production build...
-              </text>
-            
-              <text
-                x="60"
-                y="164"
-                class="normal"
-              >
-                [INFO] Optimizing assets...
-              </text>
-            
-              <text
-                x="60"
-                y="206"
-                class="normal"
-              >
-                [INFO] Running final checks...
-              </text>
-            
-              <text
-                x="60"
-                y="248"
-                class="success"
-              >
-                [OK] Deployment complete.
-              </text>
-            
-              <text
-                x="60"
-                y="290"
-                class="normal"
-              >
-                
-              </text>
-            
-              <text
-                x="60"
-                y="332"
-                class="command"
-              >
-                $ _
-              </text>
-            
-      </g>
-    
+  
+        <text
+          x="70"
+          y="80"
+          font-family="monospace"
+          font-size="18"
+          fill="#9cffbd"
+          opacity="0"
+        >
+          $ system status
 
-  </g>
+          <animate
+            attributeName="opacity"
+            values="0;1;1;1;0"
+            keyTimes="0;0.08;0.82;0.95;1"
+            dur="60s"
+            begin="0s"
+            repeatCount="indefinite"
+          />
+        </text>
+      
+        <text
+          x="70"
+          y="118"
+          font-family="monospace"
+          font-size="18"
+          fill="#b9c7bd"
+          opacity="0"
+        >
+          ◉ ARCHITECTING
 
-  <style>
+          <animate
+            attributeName="opacity"
+            values="0;1;1;1;0"
+            keyTimes="0;0.08;0.82;0.95;1"
+            dur="60s"
+            begin="0.6s"
+            repeatCount="indefinite"
+          />
+        </text>
+      
+        <text
+          x="70"
+          y="156"
+          font-family="monospace"
+          font-size="18"
+          fill="#b9c7bd"
+          opacity="0"
+        >
+          91% PROCESS COMPLETE
 
-    .sequence {
-      opacity: 0;
-      animation: terminalCycle 60s infinite;
-    }
+          <animate
+            attributeName="opacity"
+            values="0;1;1;1;0"
+            keyTimes="0;0.08;0.82;0.95;1"
+            dur="60s"
+            begin="1.2s"
+            repeatCount="indefinite"
+          />
+        </text>
+      
+        <text
+          x="70"
+          y="194"
+          font-family="monospace"
+          font-size="18"
+          fill="#b9c7bd"
+          opacity="0"
+        >
+          designing systems before they design themselves...
 
-    
-      .sequence-0 {
-        animation-delay: 0s;
-      }
-    
-      .sequence-1 {
-        animation-delay: 12s;
-      }
-    
-      .sequence-2 {
-        animation-delay: 24s;
-      }
-    
-      .sequence-3 {
-        animation-delay: 36s;
-      }
-    
-      .sequence-4 {
-        animation-delay: 48s;
-      }
-    
+          <animate
+            attributeName="opacity"
+            values="0;1;1;1;0"
+            keyTimes="0;0.08;0.82;0.95;1"
+            dur="60s"
+            begin="1.7999999999999998s"
+            repeatCount="indefinite"
+          />
+        </text>
+      
+        <text
+          x="70"
+          y="232"
+          font-family="monospace"
+          font-size="18"
+          fill="#00ff66"
+          opacity="0"
+        >
+          ● awaiting next operation...
 
-    .command {
-      fill: #00d9ff;
-      font-weight: 700;
-    }
+          <animate
+            attributeName="opacity"
+            values="0;1;1;1;0"
+            keyTimes="0;0.08;0.82;0.95;1"
+            dur="60s"
+            begin="2.4s"
+            repeatCount="indefinite"
+          />
+        </text>
+      
 
-    .normal {
-      fill: #c9d1d9;
-    }
+  <text
+    x="70"
+    y="315"
+    font-family="monospace"
+    font-size="16"
+    fill="#00ff66"
+  >
+    _
+    <animate
+      attributeName="opacity"
+      values="0;1;1;0"
+      dur="1s"
+      repeatCount="indefinite"
+    />
+  </text>
 
-    .success {
-      fill: #3fb950;
-    }
-
-    .warning {
-      fill: #d29922;
-    }
-
-    @keyframes terminalCycle {
-
-      0% {
-        opacity: 0;
-      }
-
-      4% {
-        opacity: 1;
-      }
-
-      72% {
-        opacity: 1;
-      }
-
-      80% {
-        opacity: 0;
-      }
-
-      100% {
-        opacity: 0;
-      }
-
-    }
-
-  </style>
+  <text
+    x="930"
+    y="325"
+    text-anchor="end"
+    font-family="monospace"
+    font-size="12"
+    fill="#4f7659"
+  >
+    SECTION 2/4
+  </text>
 
 </svg>
