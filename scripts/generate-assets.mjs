@@ -1,883 +1,1229 @@
 import fs from "node:fs";
 import path from "node:path";
 
-const generatedDir = path.resolve("assets/generated");
+const outputDirectory = path.join("assets", "generated");
 
-fs.mkdirSync(generatedDir, { recursive: true });
+fs.mkdirSync(outputDirectory, { recursive: true });
 
-const now = Date.now();
-const fiveMinuteSlot = Math.floor(now / (5 * 60 * 1000));
-
-function hash(value) {
-  let x = value + 0x6d2b79f5;
-
-  x = Math.imul(x ^ (x >>> 15), x | 1);
-  x ^= x + Math.imul(x ^ (x >>> 7), x | 61);
-
-  return ((x ^ (x >>> 14)) >>> 0) / 4294967296;
-}
-
-function escapeXml(value) {
-  return String(value)
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&apos;");
-}
-
-function writeAsset(filename, content) {
+const writeFile = (filename, content) => {
   fs.writeFileSync(
-    path.join(generatedDir, filename),
-    content.trim(),
+    path.join(outputDirectory, filename),
+    content.trim() + "\n",
     "utf8"
   );
-}
 
-const statuses = [
-  {
-    title: "PONDERING",
-    description: "exploring possibilities and unnecessary complexity..."
-  },
-  {
-    title: "ANALYZING",
-    description: "looking for patterns hiding in plain sight..."
-  },
-  {
-    title: "DEBUGGING",
-    description: "politely interrogating suspicious behavior..."
-  },
-  {
-    title: "DECODING",
-    description: "translating the incomprehensible..."
-  },
-  {
-    title: "COMPILING",
-    description: "turning questionable ideas into something useful..."
-  },
-  {
-    title: "EXECUTING",
-    description: "making things happen..."
-  },
-  {
-    title: "OPTIMIZING",
-    description: "removing unnecessary friction..."
-  },
-  {
-    title: "ARCHITECTING",
-    description: "designing systems before they design themselves..."
-  },
-  {
-    title: "ENCRYPTING",
-    description: "making information look appropriately mysterious..."
-  },
-  {
-    title: "DECRYPTING",
-    description: "undoing unnecessary mystery..."
-  },
-  {
-    title: "DISCOMBOBULATING",
-    description: "respectfully confusing the universe..."
-  },
-  {
-    title: "OVERTHINKING",
-    description: "considering seventeen better alternatives..."
-  },
-  {
-    title: "BUILDING",
-    description: "turning ideas into something real..."
-  },
-  {
-    title: "SHIPPING",
-    description: "preparing something to leave the terminal..."
-  },
-  {
-    title: "PUBLISHING",
-    description: "sending it into the wild..."
-  }
-];
+  console.log(`Generated: ${filename}`);
+};
 
-const statusIndex = fiveMinuteSlot % statuses.length;
-const currentStatus = statuses[statusIndex];
+const random = (min, max) =>
+  Math.floor(Math.random() * (max - min + 1)) + min;
 
-const randomProgress = Math.floor(
-  58 + hash(fiveMinuteSlot + 17) * 40
-);
-
-const randomDuration = Math.floor(
-  6 + hash(fiveMinuteSlot + 99) * 7
-);
-
-const nextStatus =
-  statuses[(statusIndex + 1) % statuses.length];
-
-const terminalSections = [
-  [
-    "$ initializing aliakbarhyder9",
-    "✔ loading developer environment",
-    "✔ synchronizing GitHub activity",
-    "✔ preparing creative systems",
-    "● STATUS: ONLINE"
-  ],
-  [
-    "$ system status",
-    `◉ ${currentStatus.title}`,
-    `${randomProgress}% PROCESS COMPLETE`,
-    currentStatus.description,
-    "● awaiting next operation..."
-  ],
-  [
-    "$ git activity --inspect",
-    "✔ commits detected",
-    "✔ pull requests monitored",
-    "✔ repositories synchronized",
-    "● all systems operational"
-  ],
-  [
-    "$ build --production",
-    "compiling ideas...",
-    "debugging reality...",
-    "optimizing questionable decisions...",
-    "✔ process completed"
-  ]
-];
-
-const terminalIndex =
-  Math.floor(now / (60 * 1000)) % terminalSections.length;
-
-const terminalLines =
-  terminalSections[terminalIndex];
+const generatedAt = new Date().toISOString();
 
 const matrixCharacters =
-  "010101001101010100101101010101010110101001010101101010100101010101101010010101010110101001010101010101001010101010101";
+  "01ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz<>[]{}()/\\|+-=*#@";
 
-function generateMatrix() {
-  const rainColumns = Array.from(
-    { length: 22 },
-    (_, index) => {
-      const x = 35 + index * 42;
-      const delay = -(index * 0.7);
+const randomMatrixCharacter = () =>
+  matrixCharacters[
+    Math.floor(Math.random() * matrixCharacters.length)
+  ];
 
-      const characters = Array.from(
-        { length: 18 },
-        (_, characterIndex) =>
-          `<tspan x="${x}" dy="22">${
-            Math.random() > 0.5 ? "1" : "0"
-          }</tspan>`
-      ).join("");
 
-      return `
-        <text
-          x="${x}"
-          y="-250"
-          font-family="monospace"
-          font-size="16"
-          fill="#00ff66"
-          opacity="0.32"
-        >
-          ${characters}
+// ─────────────────────────────────────────────
+// MATRIX SVG
+// ─────────────────────────────────────────────
 
-          <animateTransform
-            attributeName="transform"
-            type="translate"
-            from="0 -280"
-            to="0 900"
-            dur="${9 + (index % 5)}s"
-            begin="${delay}s"
-            repeatCount="indefinite"
-          />
-        </text>
-      `;
-    }
+const matrixColumns = Array.from({ length: 42 }, (_, column) => {
+  const characters = Array.from(
+    { length: random(8, 16) },
+    () => randomMatrixCharacter()
   ).join("");
 
+  const x = 20 + column * 24;
+  const delay = (column * 0.17).toFixed(2);
+  const duration = random(7, 14);
+
   return `
+    <text
+      x="${x}"
+      y="-180"
+      class="matrix-column"
+      style="animation-delay:${delay}s; animation-duration:${duration}s"
+    >${characters}</text>
+  `;
+}).join("");
+
+const matrixSvg = `
 <svg
   xmlns="http://www.w3.org/2000/svg"
-  width="1000"
-  height="340"
-  viewBox="0 0 1000 340"
+  width="100%"
+  viewBox="0 0 1100 280"
   role="img"
-  aria-label="Matrix identity animation"
+  aria-label="Matrix decoding animation"
 >
   <defs>
-
-    <linearGradient
-      id="matrixBackground"
-      x1="0"
-      y1="0"
-      x2="1"
-      y2="1"
-    >
+    <linearGradient id="matrixBackground" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#020604"/>
-      <stop offset="55%" stop-color="#07110a"/>
-      <stop offset="100%" stop-color="#020403"/>
+      <stop offset="55%" stop-color="#07110b"/>
+      <stop offset="100%" stop-color="#020302"/>
     </linearGradient>
 
-    <linearGradient
-      id="matrixName"
-      x1="0"
-      y1="0"
-      x2="1"
-      y2="0"
-    >
-      <stop offset="0%" stop-color="#007a30"/>
-      <stop offset="45%" stop-color="#00ff66"/>
-      <stop offset="100%" stop-color="#9cffbd"/>
-    </linearGradient>
-
-    <filter id="greenGlow">
-      <feGaussianBlur
-        stdDeviation="4"
-        result="blur"
-      />
-
+    <filter id="matrixGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
       <feMerge>
         <feMergeNode in="blur"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
 
-    <clipPath id="matrixClip">
-      <rect
-        x="0"
-        y="0"
-        width="1000"
-        height="340"
-        rx="24"
-      />
-    </clipPath>
+    <style>
+      .matrix-column {
+        fill: #00ff7b;
+        font-family: monospace;
+        font-size: 16px;
+        letter-spacing: 2px;
+        opacity: 0;
+        filter: url(#matrixGlow);
+        animation-name: matrixRain;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+      }
 
+      @keyframes matrixRain {
+        0% {
+          transform: translateY(-40px);
+          opacity: 0;
+        }
+
+        10% {
+          opacity: 0.85;
+        }
+
+        80% {
+          opacity: 0.45;
+        }
+
+        100% {
+          transform: translateY(520px);
+          opacity: 0;
+        }
+      }
+
+      .scanline {
+        animation: scan 4s linear infinite;
+      }
+
+      @keyframes scan {
+        0% {
+          transform: translateY(-100px);
+        }
+
+        100% {
+          transform: translateY(380px);
+        }
+      }
+
+      .decoded {
+        animation: decodedPulse 3s ease-in-out infinite;
+      }
+
+      @keyframes decodedPulse {
+        0%, 100% {
+          opacity: 0.82;
+        }
+
+        50% {
+          opacity: 1;
+        }
+      }
+    </style>
   </defs>
 
   <rect
-    width="1000"
-    height="340"
-    rx="24"
+    width="1100"
+    height="280"
+    rx="20"
     fill="url(#matrixBackground)"
-    stroke="#00ff6633"
   />
 
-  <g clip-path="url(#matrixClip)">
-    ${rainColumns}
+  <g opacity="0.12">
+    <path
+      d="M0 35H1100 M0 70H1100 M0 105H1100 M0 140H1100 M0 175H1100 M0 210H1100 M0 245H1100"
+      stroke="#00ff7b"
+      stroke-width="1"
+    />
+
+    <path
+      d="M55 0V280 M110 0V280 M165 0V280 M220 0V280 M275 0V280 M330 0V280 M385 0V280 M440 0V280 M495 0V280 M550 0V280 M605 0V280 M660 0V280 M715 0V280 M770 0V280 M825 0V280 M880 0V280 M935 0V280 M990 0V280 M1045 0V280"
+      stroke="#00ff7b"
+      stroke-width="1"
+    />
+  </g>
+
+  <g>
+    ${matrixColumns}
   </g>
 
   <rect
-    x="1"
-    y="1"
-    width="998"
-    height="338"
-    rx="24"
-    fill="none"
-    stroke="#00ff6644"
+    class="scanline"
+    x="0"
+    y="0"
+    width="1100"
+    height="2"
+    fill="#00ff7b"
+    opacity="0.5"
   />
 
-  <text
-    x="500"
-    y="130"
-    text-anchor="middle"
-    font-family="monospace"
-    font-size="14"
-    letter-spacing="7"
-    fill="#00b84d"
-  >
-    SYSTEM.IDENTITY
-  </text>
+  <g class="decoded">
+    <text
+      x="550"
+      y="125"
+      text-anchor="middle"
+      fill="#b7ffd6"
+      font-family="monospace"
+      font-size="14"
+      letter-spacing="6"
+      opacity="0.7"
+    >
+      DECRYPTING PROFILE ENVIRONMENT
+    </text>
+
+    <text
+      x="550"
+      y="170"
+      text-anchor="middle"
+      fill="#00ff7b"
+      font-family="monospace"
+      font-size="32"
+      font-weight="700"
+      letter-spacing="4"
+      filter="url(#matrixGlow)"
+    >
+      SYSTEM ONLINE
+    </text>
+
+    <text
+      x="550"
+      y="205"
+      text-anchor="middle"
+      fill="#79c99a"
+      font-family="monospace"
+      font-size="13"
+      letter-spacing="2"
+    >
+      SIGNAL · ACTIVE · ENCRYPTED
+    </text>
+  </g>
 
   <text
-    x="500"
-    y="205"
-    text-anchor="middle"
+    x="1030"
+    y="255"
+    text-anchor="end"
+    fill="#2f6945"
     font-family="monospace"
-    font-size="52"
-    font-weight="700"
-    letter-spacing="5"
-    fill="url(#matrixName)"
-    filter="url(#greenGlow)"
+    font-size="10"
   >
-    ALI AKBAR HYDER
-
-    <animate
-      attributeName="opacity"
-      values="1;0.82;1;0.9;1"
-      dur="3.5s"
-      repeatCount="indefinite"
-    />
+    ${generatedAt}
   </text>
-
-  <text
-    x="500"
-    y="248"
-    text-anchor="middle"
-    font-family="monospace"
-    font-size="15"
-    letter-spacing="4"
-    fill="#6dff98"
-    opacity="0.75"
-  >
-    ${matrixCharacters}
-
-    <animate
-      attributeName="opacity"
-      values="0.3;0.9;0.45;0.8;0.3"
-      dur="4s"
-      repeatCount="indefinite"
-    />
-  </text>
-
-  <line
-    x1="340"
-    y1="280"
-    x2="660"
-    y2="280"
-    stroke="#00ff66"
-    stroke-width="1"
-    opacity="0.4"
-  >
-    <animate
-      attributeName="opacity"
-      values="0.15;0.8;0.15"
-      dur="2.4s"
-      repeatCount="indefinite"
-    />
-  </line>
-
-  <text
-    x="500"
-    y="312"
-    text-anchor="middle"
-    font-family="monospace"
-    font-size="12"
-    letter-spacing="3"
-    fill="#00ff66"
-    opacity="0.7"
-  >
-    [ MATRIX ONLINE ]
-
-    <animate
-      attributeName="opacity"
-      values="0.25;1;0.25"
-      dur="2s"
-      repeatCount="indefinite"
-    />
-  </text>
-
 </svg>
 `;
-}
 
-function generateStatus() {
-  const progressWidth = 760;
-  const targetWidth =
-    (progressWidth * randomProgress) / 100;
+writeFile("matrix.svg", matrixSvg);
 
-  return `
+
+// ─────────────────────────────────────────────
+// TERMINAL SVG
+// ─────────────────────────────────────────────
+
+const terminalSvg = `
 <svg
   xmlns="http://www.w3.org/2000/svg"
-  width="1000"
-  height="300"
-  viewBox="0 0 1000 300"
+  width="100%"
+  viewBox="0 0 1100 620"
   role="img"
-  aria-label="Live system status"
+  aria-label="Animated profile terminal"
 >
   <defs>
-
-    <linearGradient
-      id="statusBackground"
-      x1="0"
-      y1="0"
-      x2="1"
-      y2="1"
-    >
-      <stop offset="0%" stop-color="#030604"/>
-      <stop offset="100%" stop-color="#08120b"/>
+    <linearGradient id="terminalBackground" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#060907"/>
+      <stop offset="100%" stop-color="#0b120d"/>
     </linearGradient>
 
-    <linearGradient
-      id="progressGradient"
-      x1="0"
-      y1="0"
-      x2="1"
-      y2="0"
-    >
-      <stop offset="0%" stop-color="#007c32"/>
-      <stop offset="55%" stop-color="#00ff66"/>
-      <stop offset="100%" stop-color="#8cffae"/>
-    </linearGradient>
-
-    <filter id="statusGlow">
-      <feGaussianBlur
-        stdDeviation="5"
-        result="blur"
-      />
-
+    <filter id="terminalGlow">
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
       <feMerge>
         <feMergeNode in="blur"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
 
+    <style>
+      .line {
+        opacity: 0;
+        animation: reveal 0.45s forwards;
+      }
+
+      .cursor {
+        animation: blink 0.9s steps(2, start) infinite;
+      }
+
+      @keyframes reveal {
+        from {
+          opacity: 0;
+          transform: translateY(5px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes blink {
+        50% {
+          opacity: 0;
+        }
+      }
+
+      .pulse {
+        animation: pulse 2.5s ease-in-out infinite;
+      }
+
+      @keyframes pulse {
+        0%, 100% {
+          opacity: 0.65;
+        }
+
+        50% {
+          opacity: 1;
+        }
+      }
+    </style>
   </defs>
 
   <rect
-    width="1000"
-    height="300"
-    rx="24"
-    fill="url(#statusBackground)"
-    stroke="#00ff6640"
-  />
-
-  <circle
-    cx="72"
-    cy="72"
-    r="7"
-    fill="#00ff66"
-    filter="url(#statusGlow)"
-  >
-    <animate
-      attributeName="opacity"
-      values="0.35;1;0.35"
-      dur="1.6s"
-      repeatCount="indefinite"
-    />
-  </circle>
-
-  <text
-    x="94"
-    y="78"
-    font-family="monospace"
-    font-size="16"
-    letter-spacing="3"
-    fill="#74ff9d"
-  >
-    LIVE SYSTEM STATUS
-  </text>
-
-  <text
-    x="928"
-    y="78"
-    text-anchor="end"
-    font-family="monospace"
-    font-size="13"
-    letter-spacing="2"
-    fill="#00ff66"
-    opacity="0.7"
-  >
-    AUTO-UPDATING
-  </text>
-
-  <text
-    x="120"
-    y="145"
-    font-family="monospace"
-    font-size="34"
-    font-weight="700"
-    letter-spacing="4"
-    fill="#00ff66"
-    filter="url(#statusGlow)"
-  >
-    ${escapeXml(currentStatus.title)}
-  </text>
-
-  <text
-    x="122"
-    y="180"
-    font-family="monospace"
-    font-size="16"
-    fill="#8fbf9e"
-  >
-    ${escapeXml(currentStatus.description)}
-  </text>
-
-  <rect
-    x="120"
-    y="215"
-    width="${progressWidth}"
-    height="16"
-    rx="8"
-    fill="#00ff6614"
-    stroke="#00ff6638"
-  />
-
-  <rect
-    x="120"
-    y="215"
-    width="0"
-    height="16"
-    rx="8"
-    fill="url(#progressGradient)"
-    filter="url(#statusGlow)"
-  >
-    <animate
-      attributeName="width"
-      from="0"
-      to="${targetWidth}"
-      dur="${randomDuration}s"
-      fill="freeze"
-    />
-  </rect>
-
-  <text
-    x="900"
-    y="265"
-    text-anchor="end"
-    font-family="monospace"
-    font-size="13"
-    fill="#00ff66"
-    opacity="0.7"
-  >
-    ${randomProgress}% COMPLETE
-  </text>
-
-  <text
-    x="120"
-    y="265"
-    font-family="monospace"
-    font-size="13"
-    letter-spacing="2"
-    fill="#5b966d"
-  >
-    NEXT → ${escapeXml(nextStatus.title)}
-  </text>
-
-</svg>
-`;
-}
-
-function generateTerminal() {
-  const lines = terminalLines
-    .map((line, index) => {
-      const color =
-        line.startsWith("✔")
-          ? "#72ff9b"
-          : line.startsWith("●")
-            ? "#00ff66"
-            : line.startsWith("$")
-              ? "#9cffbd"
-              : "#b9c7bd";
-
-      const y = 80 + index * 38;
-
-      return `
-        <text
-          x="70"
-          y="${y}"
-          font-family="monospace"
-          font-size="18"
-          fill="${color}"
-          opacity="0"
-        >
-          ${escapeXml(line)}
-
-          <animate
-            attributeName="opacity"
-            values="0;1;1;1;0"
-            keyTimes="0;0.08;0.82;0.95;1"
-            dur="60s"
-            begin="${index * 0.6}s"
-            repeatCount="indefinite"
-          />
-        </text>
-      `;
-    })
-    .join("");
-
-  return `
-<svg
-  xmlns="http://www.w3.org/2000/svg"
-  width="1000"
-  height="360"
-  viewBox="0 0 1000 360"
-  role="img"
-  aria-label="Rotating developer terminal"
->
-  <defs>
-
-    <linearGradient
-      id="terminalBackground"
-      x1="0"
-      y1="0"
-      x2="1"
-      y2="1"
-    >
-      <stop offset="0%" stop-color="#020403"/>
-      <stop offset="100%" stop-color="#09100b"/>
-    </linearGradient>
-
-  </defs>
-
-  <rect
-    width="1000"
-    height="360"
-    rx="24"
+    x="0"
+    y="0"
+    width="1100"
+    height="620"
+    rx="20"
     fill="url(#terminalBackground)"
-    stroke="#00ff6640"
+    stroke="#1c3425"
+    stroke-width="2"
   />
 
   <rect
     x="0"
     y="0"
-    width="1000"
+    width="1100"
     height="52"
-    rx="24"
-    fill="#0b140e"
+    rx="20"
+    fill="#0d1510"
   />
 
-  <circle
-    cx="48"
-    cy="26"
-    r="7"
-    fill="#00ff66"
-    opacity="0.8"
-  />
-
-  <circle
-    cx="72"
-    cy="26"
-    r="7"
-    fill="#00b84d"
-    opacity="0.55"
-  />
-
-  <circle
-    cx="96"
-    cy="26"
-    r="7"
-    fill="#176f37"
-    opacity="0.45"
-  />
-
-  <text
-    x="500"
+  <rect
+    x="0"
     y="32"
+    width="1100"
+    height="20"
+    fill="#0d1510"
+  />
+
+  <circle cx="32" cy="26" r="7" fill="#ff5f56"/>
+  <circle cx="56" cy="26" r="7" fill="#ffbd2e"/>
+  <circle cx="80" cy="26" r="7" fill="#27c93f"/>
+
+  <text
+    x="550"
+    y="31"
     text-anchor="middle"
+    fill="#6d8374"
     font-family="monospace"
-    font-size="14"
-    letter-spacing="3"
-    fill="#7effa3"
-    opacity="0.7"
+    font-size="13"
   >
-    ALI@SYSTEM:~
+    profile@github:~
   </text>
 
-  ${lines}
-
-  <text
-    x="70"
-    y="315"
+  <g
     font-family="monospace"
-    font-size="16"
-    fill="#00ff66"
+    font-size="17"
   >
-    _
-    <animate
-      attributeName="opacity"
-      values="0;1;1;0"
-      dur="1s"
-      repeatCount="indefinite"
+
+    <text
+      x="40"
+      y="95"
+      fill="#00ff7b"
+      class="line"
+      style="animation-delay:0.3s"
+    >
+      $ whoami
+    </text>
+
+    <text
+      x="40"
+      y="130"
+      fill="#d2ffe1"
+      class="line"
+      style="animation-delay:0.8s"
+    >
+      developer · builder · curious mind
+    </text>
+
+    <text
+      x="40"
+      y="185"
+      fill="#00ff7b"
+      class="line"
+      style="animation-delay:1.4s"
+    >
+      $ profile --initialize
+    </text>
+
+    <text
+      x="40"
+      y="220"
+      fill="#7fe8a8"
+      class="line"
+      style="animation-delay:1.9s"
+    >
+      ✔ Loading development environment
+    </text>
+
+    <text
+      x="40"
+      y="250"
+      fill="#7fe8a8"
+      class="line"
+      style="animation-delay:2.3s"
+    >
+      ✔ Synchronizing GitHub activity
+    </text>
+
+    <text
+      x="40"
+      y="280"
+      fill="#7fe8a8"
+      class="line"
+      style="animation-delay:2.7s"
+    >
+      ✔ Initializing project systems
+    </text>
+
+    <text
+      x="40"
+      y="310"
+      fill="#7fe8a8"
+      class="line"
+      style="animation-delay:3.1s"
+    >
+      ✔ Establishing secure terminal connection
+    </text>
+
+    <text
+      x="40"
+      y="365"
+      fill="#00ff7b"
+      class="line"
+      style="animation-delay:3.8s"
+    >
+      $ status --all
+    </text>
+
+    <text
+      x="40"
+      y="400"
+      fill="#9ab5a4"
+      class="line"
+      style="animation-delay:4.3s"
+    >
+      environment:
+    </text>
+
+    <text
+      x="200"
+      y="400"
+      fill="#00ff7b"
+      class="line"
+      style="animation-delay:4.6s"
+    >
+      ONLINE
+    </text>
+
+    <text
+      x="40"
+      y="430"
+      fill="#9ab5a4"
+      class="line"
+      style="animation-delay:4.9s"
+    >
+      activity:
+    </text>
+
+    <text
+      x="200"
+      y="430"
+      fill="#00ff7b"
+      class="line"
+      style="animation-delay:5.2s"
+    >
+      MONITORING
+    </text>
+
+    <text
+      x="40"
+      y="460"
+      fill="#9ab5a4"
+      class="line"
+      style="animation-delay:5.5s"
+    >
+      projects:
+    </text>
+
+    <text
+      x="200"
+      y="460"
+      fill="#00ff7b"
+      class="line"
+      style="animation-delay:5.8s"
+    >
+      ACTIVE
+    </text>
+
+    <text
+      x="40"
+      y="520"
+      fill="#00ff7b"
+      class="line"
+      style="animation-delay:6.4s"
+    >
+      $ echo "Welcome to the environment"
+    </text>
+
+    <text
+      x="40"
+      y="565"
+      fill="#d2ffe1"
+      class="line pulse"
+      style="animation-delay:6.9s"
+    >
+      Ready for whatever comes next.
+    </text>
+
+    <rect
+      x="340"
+      y="548"
+      width="11"
+      height="21"
+      fill="#00ff7b"
+      class="cursor"
     />
-  </text>
 
-  <text
-    x="930"
-    y="325"
-    text-anchor="end"
-    font-family="monospace"
-    font-size="12"
-    fill="#4f7659"
-  >
-    SECTION ${terminalIndex + 1}/${terminalSections.length}
-  </text>
-
+  </g>
 </svg>
 `;
-}
 
-function generateSkyline() {
-  const buildings = [
-    [60, 190, 70, 110],
-    [145, 130, 90, 170],
-    [250, 165, 70, 135],
-    [335, 100, 110, 200],
-    [460, 145, 85, 155],
-    [560, 80, 120, 220],
-    [700, 125, 90, 175],
-    [805, 170, 70, 130],
-    [890, 115, 55, 185]
-  ];
+writeFile("terminal.svg", terminalSvg);
 
-  const buildingSvg = buildings
-    .map(([x, y, width, height], index) => {
-      const windows = [];
 
-      for (let row = 0; row < 6; row++) {
-        for (let column = 0; column < 3; column++) {
-          const windowX =
-            x + 14 + column * ((width - 28) / 3);
+// ─────────────────────────────────────────────
+// STATUS SVG
+// ─────────────────────────────────────────────
 
-          const windowY =
-            y + 20 + row * 23;
+const statuses = [
+  {
+    name: "BUILDING",
+    message: "Constructing something interesting",
+    color: "#00ff7b"
+  },
+  {
+    name: "DEBUGGING",
+    message: "Investigating suspicious behavior",
+    color: "#00e5ff"
+  },
+  {
+    name: "PONDERING",
+    message: "Thinking dangerously hard",
+    color: "#c084fc"
+  },
+  {
+    name: "EXECUTING",
+    message: "Turning plans into reality",
+    color: "#00ff7b"
+  },
+  {
+    name: "DECODING",
+    message: "Translating chaos into information",
+    color: "#facc15"
+  },
+  {
+    name: "OPTIMIZING",
+    message: "Making things unnecessarily fast",
+    color: "#38bdf8"
+  },
+  {
+    name: "DISCOMBOBULATING",
+    message: "Something is happening. Probably.",
+    color: "#00ff7b"
+  },
+  {
+    name: "REFACTORING",
+    message: "Making the same thing cleaner",
+    color: "#f472b6"
+  }
+];
 
-          windows.push(`
-            <rect
-              x="${windowX}"
-              y="${windowY}"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="${0.25 + ((row + column + index) % 4) * 0.15}"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="${2 + ((row + column) % 3)}s"
-                begin="${-(row + column) * 0.3}s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          `);
+const statusRows = statuses.map((status, index) => {
+  const delay = index * 5;
+  const duration = 5;
+  const y = 150;
+
+  return `
+    <g
+      opacity="0"
+      style="animation: statusCycle 40s infinite; animation-delay:${delay}s"
+    >
+      <text
+        x="80"
+        y="${y}"
+        fill="${status.color}"
+        font-family="monospace"
+        font-size="16"
+        letter-spacing="4"
+      >
+        ● ${status.name}
+      </text>
+
+      <text
+        x="80"
+        y="${y + 35}"
+        fill="#89a897"
+        font-family="monospace"
+        font-size="14"
+      >
+        ${status.message}
+      </text>
+
+      <rect
+        x="80"
+        y="${y + 65}"
+        width="940"
+        height="14"
+        rx="7"
+        fill="#0c1b11"
+        stroke="#1e3d29"
+      />
+
+      <rect
+        x="80"
+        y="${y + 65}"
+        width="940"
+        height="14"
+        rx="7"
+        fill="${status.color}"
+        opacity="0.85"
+        style="
+          transform-origin:80px ${y + 72}px;
+          animation: progressFill ${duration}s ease-in-out forwards;
+          animation-delay:${delay}s;
+        "
+      />
+
+      <text
+        x="80"
+        y="${y + 115}"
+        fill="#5f7869"
+        font-family="monospace"
+        font-size="12"
+      >
+        TASK STATUS: IN PROGRESS
+      </text>
+
+      <text
+        x="1020"
+        y="${y + 115}"
+        text-anchor="end"
+        fill="${status.color}"
+        font-family="monospace"
+        font-size="12"
+      >
+        PROCESSING
+      </text>
+    </g>
+  `;
+}).join("");
+
+const statusSvg = `
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="100%"
+  viewBox="0 0 1100 320"
+  role="img"
+  aria-label="Animated development status"
+>
+  <defs>
+    <style>
+      @keyframes statusCycle {
+        0% {
+          opacity: 0;
+          transform: translateY(8px);
+        }
+
+        2% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+
+        11% {
+          opacity: 1;
+        }
+
+        12.5% {
+          opacity: 0;
+          transform: translateY(-8px);
+        }
+
+        100% {
+          opacity: 0;
         }
       }
 
-      return `
-        <rect
-          x="${x}"
-          y="${y}"
-          width="${width}"
-          height="${height}"
-          rx="4"
-          fill="#07110a"
-          stroke="#00ff6630"
-        />
+      @keyframes progressFill {
+        0% {
+          transform: scaleX(0.02);
+        }
 
-        ${windows.join("")}
-      `;
-    })
-    .join("");
+        100% {
+          transform: scaleX(1);
+        }
+      }
 
-  return `
+      .indicator {
+        animation: indicatorPulse 1.2s ease-in-out infinite;
+      }
+
+      @keyframes indicatorPulse {
+        0%, 100% {
+          opacity: 0.4;
+        }
+
+        50% {
+          opacity: 1;
+        }
+      }
+    </style>
+  </defs>
+
+  <rect
+    width="1100"
+    height="320"
+    rx="20"
+    fill="#050906"
+    stroke="#183522"
+    stroke-width="2"
+  />
+
+  <text
+    x="80"
+    y="70"
+    fill="#d5ffe2"
+    font-family="monospace"
+    font-size="22"
+    font-weight="700"
+    letter-spacing="2"
+  >
+    LIVE SYSTEM STATUS
+  </text>
+
+  <text
+    x="80"
+    y="100"
+    fill="#5f7869"
+    font-family="monospace"
+    font-size="12"
+    letter-spacing="2"
+  >
+    CURRENT DEVELOPMENT PROCESS
+  </text>
+
+  <circle
+    cx="1010"
+    cy="75"
+    r="7"
+    fill="#00ff7b"
+    class="indicator"
+  />
+
+  <text
+    x="990"
+    y="79"
+    text-anchor="end"
+    fill="#6c8a77"
+    font-family="monospace"
+    font-size="11"
+  >
+    LIVE
+  </text>
+
+  ${statusRows}
+
+</svg>
+`;
+
+writeFile("status.svg", statusSvg);
+
+
+// ─────────────────────────────────────────────
+// ACTIVITY SVG
+// ─────────────────────────────────────────────
+
+const activitySvg = `
 <svg
   xmlns="http://www.w3.org/2000/svg"
-  width="1000"
-  height="430"
-  viewBox="0 0 1000 430"
+  width="100%"
+  viewBox="0 0 1100 440"
   role="img"
-  aria-label="Currently building skyline"
+  aria-label="GitHub activity monitor"
 >
   <defs>
+    <linearGradient id="activityGreen" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#00ff7b"/>
+      <stop offset="100%" stop-color="#00c853"/>
+    </linearGradient>
 
-    <linearGradient
-      id="skyBackground"
-      x1="0"
-      y1="0"
-      x2="0"
-      y2="1"
+    <linearGradient id="activityBlue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#00e5ff"/>
+      <stop offset="100%" stop-color="#0284c7"/>
+    </linearGradient>
+
+    <linearGradient id="activityPurple" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#c084fc"/>
+      <stop offset="100%" stop-color="#7c3aed"/>
+    </linearGradient>
+
+    <style>
+      .ring {
+        transform-origin: center;
+        transform: rotate(-90deg);
+      }
+
+      .commit-ring {
+        stroke-dasharray: 420;
+        animation: commitProgress 4s ease-in-out infinite;
+      }
+
+      .repo-ring {
+        stroke-dasharray: 330;
+        animation: repoProgress 5s ease-in-out infinite;
+      }
+
+      .pr-ring {
+        stroke-dasharray: 250;
+        animation: prProgress 6s ease-in-out infinite;
+      }
+
+      @keyframes commitProgress {
+        0% { stroke-dashoffset: 420; }
+        60%, 100% { stroke-dashoffset: 70; }
+      }
+
+      @keyframes repoProgress {
+        0% { stroke-dashoffset: 330; }
+        60%, 100% { stroke-dashoffset: 100; }
+      }
+
+      @keyframes prProgress {
+        0% { stroke-dashoffset: 250; }
+        60%, 100% { stroke-dashoffset: 80; }
+      }
+
+      .number {
+        animation: numberPulse 2.5s ease-in-out infinite;
+      }
+
+      @keyframes numberPulse {
+        0%, 100% {
+          opacity: 0.75;
+        }
+
+        50% {
+          opacity: 1;
+        }
+      }
+    </style>
+  </defs>
+
+  <rect
+    width="1100"
+    height="440"
+    rx="20"
+    fill="#050906"
+    stroke="#183522"
+    stroke-width="2"
+  />
+
+  <text
+    x="550"
+    y="65"
+    text-anchor="middle"
+    fill="#d5ffe2"
+    font-family="monospace"
+    font-size="24"
+    font-weight="700"
+    letter-spacing="2"
+  >
+    GITHUB ACTIVITY MONITOR
+  </text>
+
+  <text
+    x="550"
+    y="95"
+    text-anchor="middle"
+    fill="#63806e"
+    font-family="monospace"
+    font-size="12"
+    letter-spacing="2"
+  >
+    COMMITS · PULL REQUESTS · PROJECT ACTIVITY
+  </text>
+
+  <!-- COMMITS -->
+  <g transform="translate(250 250)">
+    <circle
+      r="90"
+      fill="none"
+      stroke="#0d2114"
+      stroke-width="16"
+    />
+
+    <circle
+      r="90"
+      fill="none"
+      stroke="url(#activityGreen)"
+      stroke-width="16"
+      stroke-linecap="round"
+      class="ring commit-ring"
+    />
+
+    <text
+      y="-10"
+      text-anchor="middle"
+      fill="#00ff7b"
+      font-family="monospace"
+      font-size="13"
+      letter-spacing="2"
     >
-      <stop offset="0%" stop-color="#020403"/>
-      <stop offset="100%" stop-color="#09150d"/>
+      COMMITS
+    </text>
+
+    <text
+      y="30"
+      text-anchor="middle"
+      fill="#d5ffe2"
+      font-family="monospace"
+      font-size="30"
+      font-weight="700"
+      class="number"
+    >
+      ACTIVE
+    </text>
+  </g>
+
+  <!-- PULL REQUESTS -->
+  <g transform="translate(550 250)">
+    <circle
+      r="72"
+      fill="none"
+      stroke="#0d2114"
+      stroke-width="16"
+    />
+
+    <circle
+      r="72"
+      fill="none"
+      stroke="url(#activityBlue)"
+      stroke-width="16"
+      stroke-linecap="round"
+      class="ring repo-ring"
+    />
+
+    <text
+      y="-10"
+      text-anchor="middle"
+      fill="#00e5ff"
+      font-family="monospace"
+      font-size="13"
+      letter-spacing="2"
+    >
+      PULL REQUESTS
+    </text>
+
+    <text
+      y="30"
+      text-anchor="middle"
+      fill="#d5ffe2"
+      font-family="monospace"
+      font-size="30"
+      font-weight="700"
+      class="number"
+    >
+      TRACKED
+    </text>
+  </g>
+
+  <!-- PROJECTS -->
+  <g transform="translate(820 250)">
+    <circle
+      r="56"
+      fill="none"
+      stroke="#0d2114"
+      stroke-width="16"
+    />
+
+    <circle
+      r="56"
+      fill="none"
+      stroke="url(#activityPurple)"
+      stroke-width="16"
+      stroke-linecap="round"
+      class="ring pr-ring"
+    />
+
+    <text
+      y="-10"
+      text-anchor="middle"
+      fill="#c084fc"
+      font-family="monospace"
+      font-size="13"
+      letter-spacing="2"
+    >
+      PROJECTS
+    </text>
+
+    <text
+      y="30"
+      text-anchor="middle"
+      fill="#d5ffe2"
+      font-family="monospace"
+      font-size="22"
+      font-weight="700"
+      class="number"
+    >
+      ONLINE
+    </text>
+  </g>
+
+  <line
+    x1="100"
+    y1="390"
+    x2="1000"
+    y2="390"
+    stroke="#16301e"
+  />
+
+  <text
+    x="550"
+    y="415"
+    text-anchor="middle"
+    fill="#52705d"
+    font-family="monospace"
+    font-size="11"
+    letter-spacing="2"
+  >
+    MONITORING PUBLIC GITHUB ACTIVITY
+  </text>
+</svg>
+`;
+
+writeFile("activity.svg", activitySvg);
+
+
+// ─────────────────────────────────────────────
+// SKYLINE SVG
+// ─────────────────────────────────────────────
+
+const buildings = [
+  { x: 0, width: 70, height: 110 },
+  { x: 75, width: 55, height: 170 },
+  { x: 135, width: 80, height: 125 },
+  { x: 220, width: 55, height: 210 },
+  { x: 280, width: 95, height: 150 },
+  { x: 380, width: 70, height: 240 },
+  { x: 455, width: 55, height: 130 },
+  { x: 515, width: 90, height: 180 },
+  { x: 610, width: 60, height: 220 },
+  { x: 675, width: 110, height: 145 },
+  { x: 790, width: 70, height: 195 },
+  { x: 865, width: 95, height: 135 },
+  { x: 965, width: 70, height: 175 },
+  { x: 1040, width: 60, height: 110 }
+];
+
+const skylineBuildings = buildings.map((building, index) => {
+  const y = 300 - building.height;
+
+  const windows = Array.from(
+    { length: Math.max(3, Math.floor(building.height / 35)) },
+    (_, row) => {
+      return Array.from(
+        { length: Math.max(2, Math.floor(building.width / 22)) },
+        (_, column) => {
+          const windowX =
+            building.x + 10 + column * 18;
+
+          const windowY =
+            y + 15 + row * 25;
+
+          const delay =
+            ((index + row + column) % 10) * 0.35;
+
+          return `
+            <rect
+              x="${windowX}"
+              y="${windowY}"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:${delay}s"
+            />
+          `;
+        }
+      ).join("");
+    }
+  ).join("");
+
+  return `
+    <g>
+      <rect
+        x="${building.x}"
+        y="${y}"
+        width="${building.width}"
+        height="${building.height}"
+        fill="#07110b"
+        stroke="#163522"
+        stroke-width="1"
+      />
+
+      ${windows}
+    </g>
+  `;
+}).join("");
+
+const skylineSvg = `
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="100%"
+  viewBox="0 0 1100 360"
+  role="img"
+  aria-label="Animated digital skyline"
+>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#030704"/>
+      <stop offset="100%" stop-color="#08130c"/>
     </linearGradient>
 
     <filter id="skyGlow">
-      <feGaussianBlur
-        stdDeviation="4"
-        result="blur"
-      />
-
+      <feGaussianBlur stdDeviation="4" result="blur"/>
       <feMerge>
         <feMergeNode in="blur"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
 
+    <style>
+      @keyframes windowPulse {
+        0%, 100% {
+          opacity: 0.18;
+        }
+
+        50% {
+          opacity: 1;
+          filter: url(#skyGlow);
+        }
+      }
+
+      .signal {
+        animation: signalPulse 2s ease-in-out infinite;
+      }
+
+      @keyframes signalPulse {
+        0%, 100% {
+          opacity: 0.25;
+        }
+
+        50% {
+          opacity: 0.9;
+        }
+      }
+    </style>
   </defs>
 
   <rect
-    width="1000"
-    height="430"
-    rx="24"
-    fill="url(#skyBackground)"
-    stroke="#00ff6638"
+    width="1100"
+    height="360"
+    fill="url(#sky)"
+    rx="20"
   />
 
-  <text
-    x="500"
-    y="75"
-    text-anchor="middle"
-    font-family="monospace"
-    font-size="16"
-    letter-spacing="5"
-    fill="#00ff66"
-    opacity="0.8"
-  >
-    CURRENTLY BUILDING
-  </text>
-
-  <text
-    x="500"
-    y="120"
-    text-anchor="middle"
-    font-family="monospace"
-    font-size="27"
-    font-weight="700"
-    letter-spacing="3"
-    fill="#a0ffba"
-  >
-    SKYLINE
-  </text>
-
-  <line
-    x1="90"
-    y1="155"
-    x2="910"
-    y2="155"
-    stroke="#00ff6630"
+  <circle
+    cx="550"
+    cy="100"
+    r="70"
+    fill="#00ff7b"
+    opacity="0.025"
   />
 
-  ${buildingSvg}
+  <circle
+    cx="550"
+    cy="100"
+    r="35"
+    fill="#00ff7b"
+    opacity="0.04"
+  />
 
-  <line
-    x1="0"
-    y1="300"
-    x2="1000"
-    y2="300"
-    stroke="#00ff66"
+  <path
+    d="M0 300H1100"
+    stroke="#00ff7b"
     stroke-width="2"
-    opacity="0.35"
+    opacity="0.3"
   />
 
+  ${skylineBuildings}
+
+  <g class="signal">
+    <circle
+      cx="550"
+      cy="60"
+      r="5"
+      fill="#00ff7b"
+      filter="url(#skyGlow)"
+    />
+
+    <path
+      d="M550 65V300"
+      stroke="#00ff7b"
+      stroke-width="1"
+      opacity="0.25"
+    />
+  </g>
+
   <text
-    x="500"
-    y="350"
+    x="550"
+    y="335"
     text-anchor="middle"
+    fill="#00ff7b"
     font-family="monospace"
-    font-size="15"
+    font-size="13"
     letter-spacing="2"
-    fill="#6eff94"
   >
-    CHECK IT OUT →
+    CHECK IT OUT → ALIAKBARHYDER9.PYTHONANYWHERE.COM
   </text>
-
-  <text
-    x="500"
-    y="385"
-    text-anchor="middle"
-    font-family="monospace"
-    font-size="21"
-    font-weight="700"
-    fill="#00ff66"
-    filter="url(#skyGlow)"
-  >
-    aliakbarhyder9.pythonanywhere.com
-  </text>
-
 </svg>
 `;
-}
 
-writeAsset("matrix.svg", generateMatrix());
-writeAsset("status.svg", generateStatus());
-writeAsset("terminal.svg", generateTerminal());
-writeAsset("skyline.svg", generateSkyline());
+writeFile("skyline.svg", skylineSvg);
 
-console.log("Generated profile assets successfully.");
+console.log("");
+console.log("Profile assets generated successfully.");
