@@ -10,298 +10,194 @@ import {
   useState,
 } from "react";
 
-interface Sequence {
-  command: string;
-  lines: string[];
-}
+const sections = [
+  [
+    "$ initializing aliakbarhyder9",
+    "✔ loading developer environment",
+    "✔ synchronizing GitHub activity",
+    "✔ preparing creative systems",
+    "● STATUS: ONLINE",
+  ],
 
-const sequences: Sequence[] = [
+  [
+    "$ system status",
+    "◉ PONDERING",
+    "████████████████░░░░",
+    "exploring possibilities...",
+    "● awaiting next operation...",
+  ],
 
-  {
-    command: "ponder --architecture",
+  [
+    "$ git activity --inspect",
+    "✔ commits detected",
+    "✔ pull requests monitored",
+    "✔ repositories synchronized",
+    "● everything appears operational",
+  ],
 
-    lines: [
-      "[INFO] Inspecting the problem...",
-      "[INFO] Exploring possible solutions...",
-      "[INFO] Thinking harder...",
-      "[OK] Architecture selected.",
-    ],
-  },
+  [
+    "$ build --production",
+    "compiling ideas...",
+    "debugging reality...",
+    "optimizing questionable decisions...",
+    "✔ process completed",
+  ],
 
-  {
-    command: "analyze --project",
-
-    lines: [
-      "[INFO] Scanning architecture...",
-      "[INFO] Evaluating implementation...",
-      "[INFO] Identifying improvements...",
-      "[OK] Analysis complete.",
-    ],
-  },
-
-  {
-    command: "debug --deep",
-
-    lines: [
-      "[INFO] Searching for issues...",
-      "[INFO] Inspecting suspicious behavior...",
-      "[WARN] Something looks questionable.",
-      "[INFO] Investigating...",
-      "[OK] Issue resolved.",
-    ],
-  },
-
-  {
-    command: "execute",
-
-    lines: [
-      "[INFO] Initializing sequence...",
-      "[INFO] Running implementation...",
-      "[INFO] Monitoring output...",
-      "[OK] Execution complete.",
-    ],
-  },
-
-  {
-    command: "publish",
-
-    lines: [
-      "[INFO] Preparing production build...",
-      "[INFO] Optimizing assets...",
-      "[INFO] Running final checks...",
-      "[OK] Deployment complete.",
-    ],
-  },
-
-  {
-    command: "discombobulate",
-
-    lines: [
-      "[INFO] Rearranging questionable variables...",
-      "[INFO] Introducing controlled chaos...",
-      "[INFO] Recovering from chaos...",
-      "[OK] System somehow improved.",
-    ],
-  },
-
+  [
+    "$ experimental_process",
+    "decoding...",
+    "executing...",
+    "discombobulating...",
+    "✔ somehow successful",
+  ],
 ];
 
-export default function RotatingTerminal() {
+interface RotatingTerminalProps {
+  sectionDuration?: number;
+  typingSpeed?: number;
+}
 
-  const [
-    sequenceIndex,
-    setSequenceIndex,
-  ] = useState(0);
+export default function RotatingTerminal({
+  sectionDuration = 60000,
+  typingSpeed = 35,
+}: RotatingTerminalProps) {
+  const [sectionIndex, setSectionIndex] =
+    useState(0);
 
-  const [
-    visibleLines,
-    setVisibleLines,
-  ] = useState<string[]>([]);
-
-  const [
-    clearing,
-    setClearing,
-  ] = useState(false);
-
-  const sequence =
-    sequences[sequenceIndex];
+  const [visibleLines, setVisibleLines] =
+    useState<number[]>([]);
 
   useEffect(() => {
+    let cancelled = false;
 
-    setVisibleLines([]);
-    setClearing(false);
+    async function runSection() {
+      setVisibleLines([]);
 
-    const allLines = [
-      `$ ${sequence.command}`,
-      ...sequence.lines,
-      "",
-      "$ _",
-    ];
+      for (
+        let index = 0;
+        index < sections[sectionIndex].length;
+        index++
+      ) {
+        if (cancelled) return;
 
-    let lineIndex = 0;
-
-    const interval =
-      setInterval(() => {
-
-        if (
-          lineIndex >= allLines.length
-        ) {
-          clearInterval(interval);
-          return;
-        }
-
-        setVisibleLines(
-          (previous) => [
-            ...previous,
-            allLines[lineIndex],
-          ]
+        await new Promise((resolve) =>
+          setTimeout(resolve, typingSpeed * 8)
         );
 
-        lineIndex++;
+        setVisibleLines((previous) => [
+          ...previous,
+          index,
+        ]);
+      }
 
-      }, 700);
+      await new Promise((resolve) =>
+        setTimeout(resolve, sectionDuration)
+      );
 
-    return () => {
-      clearInterval(interval);
-    };
+      if (cancelled) return;
 
-  }, [
-    sequence,
-    sequenceIndex,
-  ]);
+      setVisibleLines([]);
 
-  useEffect(() => {
+      await new Promise((resolve) =>
+        setTimeout(resolve, 700)
+      );
 
-    const cycleTime = 60000;
+      if (cancelled) return;
 
-    const timeout =
-      setTimeout(() => {
+      setSectionIndex(
+        (previous) =>
+          (previous + 1) % sections.length
+      );
+    }
 
-        setClearing(true);
-
-        setTimeout(() => {
-
-          setSequenceIndex(
-            (previous) =>
-              (
-                previous + 1
-              ) % sequences.length
-          );
-
-        }, 1000);
-
-      }, cycleTime);
+    runSection();
 
     return () => {
-      clearTimeout(timeout);
+      cancelled = true;
     };
-
   }, [
-    sequenceIndex,
+    sectionIndex,
+    sectionDuration,
+    typingSpeed,
   ]);
+
+  const currentSection =
+    sections[sectionIndex];
 
   return (
+    <div className="relative overflow-hidden rounded-2xl border border-green-500/20 bg-[#030604] p-6 font-mono shadow-[0_0_50px_rgba(0,255,102,0.08)]">
+      <div className="mb-6 flex items-center justify-between border-b border-green-500/10 pb-4">
+        <div className="flex gap-2">
+          <div className="h-3 w-3 rounded-full bg-green-400" />
+          <div className="h-3 w-3 rounded-full bg-green-600/60" />
+          <div className="h-3 w-3 rounded-full bg-green-900/60" />
+        </div>
 
-    <div
-      className="
-        overflow-hidden
-        rounded-2xl
-        border
-        border-white/10
-        bg-[#0d1117]
-        font-mono
-        shadow-2xl
-      "
-    >
-
-      <div
-        className="
-          flex
-          gap-2
-          border-b
-          border-white/10
-          px-5
-          py-4
-        "
-      >
-
-        <div className="
-          h-3
-          w-3
-          rounded-full
-          bg-red-400
-        " />
-
-        <div className="
-          h-3
-          w-3
-          rounded-full
-          bg-yellow-400
-        " />
-
-        <div className="
-          h-3
-          w-3
-          rounded-full
-          bg-green-400
-        " />
-
+        <span className="text-xs tracking-[0.3em] text-green-400/60">
+          ALI@SYSTEM
+        </span>
       </div>
 
-      <AnimatePresence
-        mode="wait"
-      >
-
-        {!clearing && (
-
-          <motion.div
-            key={sequenceIndex}
-
-            initial={{
-              opacity: 0,
-            }}
-
-            animate={{
-              opacity: 1,
-            }}
-
-            exit={{
-              opacity: 0,
-              height: 0,
-            }}
-
-            className="
-              min-h-[320px]
-              space-y-3
-              p-6
-              text-sm
-              md:text-base
-            "
-          >
-
-            {visibleLines.map(
-              (
-                line,
-                index
-              ) => (
-
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={sectionIndex}
+          initial={{
+            opacity: 0,
+          }}
+          animate={{
+            opacity: 1,
+          }}
+          exit={{
+            opacity: 0,
+            y: -10,
+          }}
+          className="min-h-[230px] space-y-3"
+        >
+          {currentSection.map(
+            (line, index) =>
+              visibleLines.includes(index) && (
                 <motion.div
-                  key={index}
-
+                  key={`${sectionIndex}-${index}`}
                   initial={{
                     opacity: 0,
-                    y: 5,
+                    x: -8,
                   }}
-
                   animate={{
                     opacity: 1,
-                    y: 0,
+                    x: 0,
                   }}
-
+                  transition={{
+                    duration: 0.25,
+                  }}
                   className={
-                    line.includes("[OK]")
-                      ? "text-green-400"
-                      : line.includes("[WARN]")
-                      ? "text-yellow-400"
-                      : line.startsWith("$")
-                      ? "font-bold text-cyan-400"
-                      : "text-zinc-300"
+                    line.startsWith("✔")
+                      ? "text-green-300"
+                      : line.startsWith("●")
+                        ? "text-green-400"
+                        : line.startsWith("$")
+                          ? "text-green-200"
+                          : "text-green-100/70"
                   }
                 >
-
                   {line}
-
                 </motion.div>
-
               )
-            )}
-
-          </motion.div>
-
-        )}
-
+          )}
+        </motion.div>
       </AnimatePresence>
 
+      <motion.div
+        animate={{
+          opacity: [0, 1, 1, 0],
+        }}
+        transition={{
+          duration: 1,
+          repeat: Infinity,
+        }}
+        className="text-green-400"
+      >
+        _
+      </motion.div>
     </div>
   );
 }
