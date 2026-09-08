@@ -102,7 +102,7 @@
     fill="#00ff66"
     filter="url(#statusGlow)"
   >
-    ARCHITECTING
+    ENCRYPTING
   </text>
 
   <text
@@ -112,7 +112,7 @@
     font-size="16"
     fill="#8fbf9e"
   >
-    designing systems before they design themselves...
+    making information look appropriately mysterious...
   </text>
 
   <rect
@@ -137,8 +137,8 @@
     <animate
       attributeName="width"
       from="0"
-      to="691.6"
-      dur="8s"
+      to="722"
+      dur="10s"
       fill="freeze"
     />
   </rect>
@@ -152,7 +152,7 @@
     fill="#00ff66"
     opacity="0.7"
   >
-    91% COMPLETE
+    95% COMPLETE
   </text>
 
   <text
@@ -163,7 +163,7 @@
     letter-spacing="2"
     fill="#5b966d"
   >
-    NEXT → ENCRYPTING
+    NEXT → DECRYPTING
   </text>
 
 </svg>

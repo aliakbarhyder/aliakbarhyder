@@ -84,7 +84,7 @@
           fill="#9cffbd"
           opacity="0"
         >
-          $ system status
+          $ git activity --inspect
 
           <animate
             attributeName="opacity"
@@ -101,10 +101,10 @@
           y="118"
           font-family="monospace"
           font-size="18"
-          fill="#b9c7bd"
+          fill="#72ff9b"
           opacity="0"
         >
-          ◉ ARCHITECTING
+          ✔ commits detected
 
           <animate
             attributeName="opacity"
@@ -121,10 +121,10 @@
           y="156"
           font-family="monospace"
           font-size="18"
-          fill="#b9c7bd"
+          fill="#72ff9b"
           opacity="0"
         >
-          91% PROCESS COMPLETE
+          ✔ pull requests monitored
 
           <animate
             attributeName="opacity"
@@ -141,10 +141,10 @@
           y="194"
           font-family="monospace"
           font-size="18"
-          fill="#b9c7bd"
+          fill="#72ff9b"
           opacity="0"
         >
-          designing systems before they design themselves...
+          ✔ repositories synchronized
 
           <animate
             attributeName="opacity"
@@ -164,7 +164,7 @@
           fill="#00ff66"
           opacity="0"
         >
-          ● awaiting next operation...
+          ● all systems operational
 
           <animate
             attributeName="opacity"
@@ -201,7 +201,7 @@
     font-size="12"
     fill="#4f7659"
   >
-    SECTION 2/4
+    SECTION 3/4
   </text>
 
 </svg>
