@@ -1,323 +1,179 @@
 "use client";
 
-import {
-  motion,
-} from "motion/react";
+import { motion } from "motion/react";
 
-interface Activity {
+interface ActivityData {
   label: string;
-  value: number;
   current: number;
   target: number;
   unit: string;
-  color: string;
   size: number;
+  color: string;
 }
 
-const activities: Activity[] = [
-
+const activities: ActivityData[] = [
   {
     label: "COMMITS",
-    value: 78,
-    current: 78,
+    current: 0,
     target: 100,
     unit: "COMMITS",
-    color: "#00d9ff",
-    size: 210,
+    size: 200,
+    color: "#00ff66",
   },
-
   {
     label: "PULL REQUESTS",
-    value: 62,
-    current: 31,
-    target: 50,
+    current: 0,
+    target: 25,
     unit: "PRS",
-    color: "#8b5cf6",
-    size: 165,
+    size: 160,
+    color: "#39ff88",
   },
-
   {
-    label: "PROJECTS",
-    value: 45,
-    current: 9,
+    label: "REPOSITORIES",
+    current: 0,
     target: 20,
     unit: "REPOS",
-    color: "#00ff88",
     size: 120,
+    color: "#8cffae",
   },
-
 ];
 
-function Ring({
-  activity,
+function Circle({
+  data,
   index,
 }: {
-  activity: Activity;
+  data: ActivityData;
   index: number;
 }) {
-
   const strokeWidth = 14;
 
   const radius =
-    (
-      activity.size -
-      strokeWidth
-    ) / 2;
+    (data.size - strokeWidth) / 2;
 
   const circumference =
-    radius * 2 * Math.PI;
+    radius * Math.PI * 2;
+
+  const percentage =
+    Math.min(
+      100,
+      (data.current / data.target) * 100
+    );
 
   const offset =
     circumference -
-    (
-      activity.value / 100
-    ) *
-      circumference;
+    (percentage / 100) * circumference;
 
   return (
-
     <motion.svg
-
-      width={
-        activity.size
-      }
-
-      height={
-        activity.size
-      }
-
-      viewBox={`
-        0 0
-        ${activity.size}
-        ${activity.size}
-      `}
-
-      className="
-        absolute
-        -rotate-90
-      "
-
+      width={data.size}
+      height={data.size}
+      viewBox={`0 0 ${data.size} ${data.size}`}
+      className="absolute"
       initial={{
         opacity: 0,
         scale: 0.8,
       }}
-
       animate={{
         opacity: 1,
         scale: 1,
       }}
-
       transition={{
-        delay:
-          index * 0.2,
+        delay: index * 0.2,
+        duration: 0.7,
       }}
-
     >
-
       <circle
-
-        cx={
-          activity.size / 2
-        }
-
-        cy={
-          activity.size / 2
-        }
-
+        cx={data.size / 2}
+        cy={data.size / 2}
         r={radius}
-
         fill="none"
-
-        stroke="
-          rgba(255,255,255,0.08)
-        "
-
-        strokeWidth={
-          strokeWidth
-        }
-
+        stroke="rgba(0,255,102,0.08)"
+        strokeWidth={strokeWidth}
       />
 
       <motion.circle
-
-        cx={
-          activity.size / 2
-        }
-
-        cy={
-          activity.size / 2
-        }
-
+        cx={data.size / 2}
+        cy={data.size / 2}
         r={radius}
-
         fill="none"
-
-        stroke={
-          activity.color
-        }
-
-        strokeWidth={
-          strokeWidth
-        }
-
+        stroke={data.color}
+        strokeWidth={strokeWidth}
         strokeLinecap="round"
-
-        strokeDasharray={
-          circumference
-        }
-
+        strokeDasharray={circumference}
         initial={{
-          strokeDashoffset:
-            circumference,
+          strokeDashoffset: circumference,
         }}
-
         animate={{
-          strokeDashoffset:
-            offset,
+          strokeDashoffset: offset,
         }}
-
         transition={{
           duration: 1.8,
-          delay:
-            index * 0.2,
+          delay: index * 0.2,
         }}
-
+        style={{
+          transformOrigin: "center",
+          transform: "rotate(-90deg)",
+          filter:
+            "drop-shadow(0 0 8px rgba(0,255,102,0.4))",
+        }}
       />
-
     </motion.svg>
-
   );
 }
 
 export default function ActivityMonitor() {
-
   return (
+    <div className="rounded-3xl border border-green-500/15 bg-[#050806] p-8">
+      <div className="mb-8 text-center">
+        <p className="font-mono text-xs tracking-[0.35em] text-green-400/60">
+          GITHUB ACTIVITY
+        </p>
 
-    <div
-      className="
-        flex
-        flex-col
-        items-center
-        gap-10
-        rounded-3xl
-        border
-        border-white/10
-        bg-[#0d1117]
-        p-8
-        text-white
-        md:flex-row
-      "
-    >
-
-      <div
-        className="
-          relative
-          flex
-          h-[220px]
-          w-[220px]
-          items-center
-          justify-center
-        "
-      >
-
-        {activities.map(
-          (
-            activity,
-            index
-          ) => (
-
-            <Ring
-
-              key={
-                activity.label
-              }
-
-              activity={
-                activity
-              }
-
-              index={
-                index
-              }
-
-            />
-
-          )
-        )}
-
+        <h2 className="mt-3 text-2xl font-semibold text-green-50">
+          Development Monitor
+        </h2>
       </div>
 
-      <div className="
-        space-y-6
-      ">
+      <div className="flex flex-col items-center justify-center gap-10 md:flex-row">
+        <div className="relative h-[200px] w-[200px]">
+          {activities.map(
+            (activity, index) => (
+              <Circle
+                key={activity.label}
+                data={activity}
+                index={index}
+              />
+            )
+          )}
+        </div>
 
-        {activities.map(
-          (
-            activity
-          ) => (
-
-            <div
-              key={
-                activity.label
-              }
-            >
-
-              <div className="
-                text-xs
-                tracking-[0.2em]
-                text-zinc-500
-              ">
-
-                {
-                  activity.label
-                }
-
-              </div>
-
+        <div className="space-y-6">
+          {activities.map(
+            (activity) => (
               <div
-                className="
-                  mt-1
-                  text-2xl
-                  font-bold
-                "
-
-                style={{
-                  color:
-                    activity.color,
-                }}
+                key={activity.label}
+                className="border-l border-green-500/20 pl-5"
               >
+                <p className="font-mono text-xs tracking-wider text-green-400/60">
+                  {activity.label}
+                </p>
 
-                {
-                  activity.current
-                }
-
-                /
-
-                {
-                  activity.target
-                }
-
-                <span className="
-                  ml-2
-                  text-sm
-                  text-zinc-500
-                ">
-
-                  {
-                    activity.unit
-                  }
-
-                </span>
-
+                <p
+                  className="mt-1 text-2xl font-semibold"
+                  style={{
+                    color: activity.color,
+                  }}
+                >
+                  {activity.current}
+                  <span className="ml-1 text-sm text-green-100/40">
+                    {activity.unit}
+                  </span>
+                </p>
               </div>
-
-            </div>
-
-          )
-        )}
-
+            )
+          )}
+        </div>
       </div>
-
     </div>
   );
 }
