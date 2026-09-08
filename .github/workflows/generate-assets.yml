@@ -7,11 +7,12 @@ on:
     branches:
       - main
     paths:
-      - "scripts/**"
+      - "scripts/generate-assets.mjs"
+      - "package.json"
       - ".github/workflows/generate-assets.yml"
 
   schedule:
-    - cron: "*/5 * * * *"
+    - cron: "0 */6 * * *"
 
 permissions:
   contents: write
@@ -27,10 +28,10 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: "20"
 
-      - name: Generate animated profile assets
-        run: npm run generate
+      - name: Generate profile assets
+        run: node scripts/generate-assets.mjs
 
       - name: Commit generated assets
         run: |
@@ -40,8 +41,8 @@ jobs:
           git add assets/generated
 
           if git diff --cached --quiet; then
-            echo "No changes to commit"
+            echo "No generated asset changes."
           else
-            git commit -m "chore: update profile animations"
+            git commit -m "chore: update profile assets"
             git push
           fi
