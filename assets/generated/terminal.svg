@@ -1,207 +1,284 @@
 <svg
   xmlns="http://www.w3.org/2000/svg"
-  width="1000"
-  height="360"
-  viewBox="0 0 1000 360"
+  width="100%"
+  viewBox="0 0 1100 620"
   role="img"
-  aria-label="Rotating developer terminal"
+  aria-label="Animated profile terminal"
 >
   <defs>
-
-    <linearGradient
-      id="terminalBackground"
-      x1="0"
-      y1="0"
-      x2="1"
-      y2="1"
-    >
-      <stop offset="0%" stop-color="#020403"/>
-      <stop offset="100%" stop-color="#09100b"/>
+    <linearGradient id="terminalBackground" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#060907"/>
+      <stop offset="100%" stop-color="#0b120d"/>
     </linearGradient>
 
+    <filter id="terminalGlow">
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <style>
+      .line {
+        opacity: 0;
+        animation: reveal 0.45s forwards;
+      }
+
+      .cursor {
+        animation: blink 0.9s steps(2, start) infinite;
+      }
+
+      @keyframes reveal {
+        from {
+          opacity: 0;
+          transform: translateY(5px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes blink {
+        50% {
+          opacity: 0;
+        }
+      }
+
+      .pulse {
+        animation: pulse 2.5s ease-in-out infinite;
+      }
+
+      @keyframes pulse {
+        0%, 100% {
+          opacity: 0.65;
+        }
+
+        50% {
+          opacity: 1;
+        }
+      }
+    </style>
   </defs>
 
   <rect
-    width="1000"
-    height="360"
-    rx="24"
+    x="0"
+    y="0"
+    width="1100"
+    height="620"
+    rx="20"
     fill="url(#terminalBackground)"
-    stroke="#00ff6640"
+    stroke="#1c3425"
+    stroke-width="2"
   />
 
   <rect
     x="0"
     y="0"
-    width="1000"
+    width="1100"
     height="52"
-    rx="24"
-    fill="#0b140e"
+    rx="20"
+    fill="#0d1510"
   />
 
-  <circle
-    cx="48"
-    cy="26"
-    r="7"
-    fill="#00ff66"
-    opacity="0.8"
-  />
-
-  <circle
-    cx="72"
-    cy="26"
-    r="7"
-    fill="#00b84d"
-    opacity="0.55"
-  />
-
-  <circle
-    cx="96"
-    cy="26"
-    r="7"
-    fill="#176f37"
-    opacity="0.45"
-  />
-
-  <text
-    x="500"
+  <rect
+    x="0"
     y="32"
+    width="1100"
+    height="20"
+    fill="#0d1510"
+  />
+
+  <circle cx="32" cy="26" r="7" fill="#ff5f56"/>
+  <circle cx="56" cy="26" r="7" fill="#ffbd2e"/>
+  <circle cx="80" cy="26" r="7" fill="#27c93f"/>
+
+  <text
+    x="550"
+    y="31"
     text-anchor="middle"
+    fill="#6d8374"
     font-family="monospace"
-    font-size="14"
-    letter-spacing="3"
-    fill="#7effa3"
-    opacity="0.7"
+    font-size="13"
   >
-    ALI@SYSTEM:~
+    profile@github:~
   </text>
 
-  
-        <text
-          x="70"
-          y="80"
-          font-family="monospace"
-          font-size="18"
-          fill="#9cffbd"
-          opacity="0"
-        >
-          $ system status
-
-          <animate
-            attributeName="opacity"
-            values="0;1;1;1;0"
-            keyTimes="0;0.08;0.82;0.95;1"
-            dur="60s"
-            begin="0s"
-            repeatCount="indefinite"
-          />
-        </text>
-      
-        <text
-          x="70"
-          y="118"
-          font-family="monospace"
-          font-size="18"
-          fill="#b9c7bd"
-          opacity="0"
-        >
-          ◉ ENCRYPTING
-
-          <animate
-            attributeName="opacity"
-            values="0;1;1;1;0"
-            keyTimes="0;0.08;0.82;0.95;1"
-            dur="60s"
-            begin="0.6s"
-            repeatCount="indefinite"
-          />
-        </text>
-      
-        <text
-          x="70"
-          y="156"
-          font-family="monospace"
-          font-size="18"
-          fill="#b9c7bd"
-          opacity="0"
-        >
-          95% PROCESS COMPLETE
-
-          <animate
-            attributeName="opacity"
-            values="0;1;1;1;0"
-            keyTimes="0;0.08;0.82;0.95;1"
-            dur="60s"
-            begin="1.2s"
-            repeatCount="indefinite"
-          />
-        </text>
-      
-        <text
-          x="70"
-          y="194"
-          font-family="monospace"
-          font-size="18"
-          fill="#b9c7bd"
-          opacity="0"
-        >
-          making information look appropriately mysterious...
-
-          <animate
-            attributeName="opacity"
-            values="0;1;1;1;0"
-            keyTimes="0;0.08;0.82;0.95;1"
-            dur="60s"
-            begin="1.7999999999999998s"
-            repeatCount="indefinite"
-          />
-        </text>
-      
-        <text
-          x="70"
-          y="232"
-          font-family="monospace"
-          font-size="18"
-          fill="#00ff66"
-          opacity="0"
-        >
-          ● awaiting next operation...
-
-          <animate
-            attributeName="opacity"
-            values="0;1;1;1;0"
-            keyTimes="0;0.08;0.82;0.95;1"
-            dur="60s"
-            begin="2.4s"
-            repeatCount="indefinite"
-          />
-        </text>
-      
-
-  <text
-    x="70"
-    y="315"
+  <g
     font-family="monospace"
-    font-size="16"
-    fill="#00ff66"
+    font-size="17"
   >
-    _
-    <animate
-      attributeName="opacity"
-      values="0;1;1;0"
-      dur="1s"
-      repeatCount="indefinite"
+
+    <text
+      x="40"
+      y="95"
+      fill="#00ff7b"
+      class="line"
+      style="animation-delay:0.3s"
+    >
+      $ whoami
+    </text>
+
+    <text
+      x="40"
+      y="130"
+      fill="#d2ffe1"
+      class="line"
+      style="animation-delay:0.8s"
+    >
+      developer · builder · curious mind
+    </text>
+
+    <text
+      x="40"
+      y="185"
+      fill="#00ff7b"
+      class="line"
+      style="animation-delay:1.4s"
+    >
+      $ profile --initialize
+    </text>
+
+    <text
+      x="40"
+      y="220"
+      fill="#7fe8a8"
+      class="line"
+      style="animation-delay:1.9s"
+    >
+      ✔ Loading development environment
+    </text>
+
+    <text
+      x="40"
+      y="250"
+      fill="#7fe8a8"
+      class="line"
+      style="animation-delay:2.3s"
+    >
+      ✔ Synchronizing GitHub activity
+    </text>
+
+    <text
+      x="40"
+      y="280"
+      fill="#7fe8a8"
+      class="line"
+      style="animation-delay:2.7s"
+    >
+      ✔ Initializing project systems
+    </text>
+
+    <text
+      x="40"
+      y="310"
+      fill="#7fe8a8"
+      class="line"
+      style="animation-delay:3.1s"
+    >
+      ✔ Establishing secure terminal connection
+    </text>
+
+    <text
+      x="40"
+      y="365"
+      fill="#00ff7b"
+      class="line"
+      style="animation-delay:3.8s"
+    >
+      $ status --all
+    </text>
+
+    <text
+      x="40"
+      y="400"
+      fill="#9ab5a4"
+      class="line"
+      style="animation-delay:4.3s"
+    >
+      environment:
+    </text>
+
+    <text
+      x="200"
+      y="400"
+      fill="#00ff7b"
+      class="line"
+      style="animation-delay:4.6s"
+    >
+      ONLINE
+    </text>
+
+    <text
+      x="40"
+      y="430"
+      fill="#9ab5a4"
+      class="line"
+      style="animation-delay:4.9s"
+    >
+      activity:
+    </text>
+
+    <text
+      x="200"
+      y="430"
+      fill="#00ff7b"
+      class="line"
+      style="animation-delay:5.2s"
+    >
+      MONITORING
+    </text>
+
+    <text
+      x="40"
+      y="460"
+      fill="#9ab5a4"
+      class="line"
+      style="animation-delay:5.5s"
+    >
+      projects:
+    </text>
+
+    <text
+      x="200"
+      y="460"
+      fill="#00ff7b"
+      class="line"
+      style="animation-delay:5.8s"
+    >
+      ACTIVE
+    </text>
+
+    <text
+      x="40"
+      y="520"
+      fill="#00ff7b"
+      class="line"
+      style="animation-delay:6.4s"
+    >
+      $ echo "Welcome to the environment"
+    </text>
+
+    <text
+      x="40"
+      y="565"
+      fill="#d2ffe1"
+      class="line pulse"
+      style="animation-delay:6.9s"
+    >
+      Ready for whatever comes next.
+    </text>
+
+    <rect
+      x="340"
+      y="548"
+      width="11"
+      height="21"
+      fill="#00ff7b"
+      class="cursor"
     />
-  </text>
 
-  <text
-    x="930"
-    y="325"
-    text-anchor="end"
-    font-family="monospace"
-    font-size="12"
-    fill="#4f7659"
-  >
-    SECTION 2/4
-  </text>
-
+  </g>
 </svg>

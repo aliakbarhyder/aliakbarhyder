@@ -1,3139 +1,2264 @@
 <svg
   xmlns="http://www.w3.org/2000/svg"
-  width="1000"
-  height="430"
-  viewBox="0 0 1000 430"
+  width="100%"
+  viewBox="0 0 1100 360"
   role="img"
-  aria-label="Currently building skyline"
+  aria-label="Animated digital skyline"
 >
   <defs>
-
-    <linearGradient
-      id="skyBackground"
-      x1="0"
-      y1="0"
-      x2="0"
-      y2="1"
-    >
-      <stop offset="0%" stop-color="#020403"/>
-      <stop offset="100%" stop-color="#09150d"/>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#030704"/>
+      <stop offset="100%" stop-color="#08130c"/>
     </linearGradient>
 
     <filter id="skyGlow">
-      <feGaussianBlur
-        stdDeviation="4"
-        result="blur"
-      />
-
+      <feGaussianBlur stdDeviation="4" result="blur"/>
       <feMerge>
         <feMergeNode in="blur"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
 
+    <style>
+      @keyframes windowPulse {
+        0%, 100% {
+          opacity: 0.18;
+        }
+
+        50% {
+          opacity: 1;
+          filter: url(#skyGlow);
+        }
+      }
+
+      .signal {
+        animation: signalPulse 2s ease-in-out infinite;
+      }
+
+      @keyframes signalPulse {
+        0%, 100% {
+          opacity: 0.25;
+        }
+
+        50% {
+          opacity: 0.9;
+        }
+      }
+    </style>
   </defs>
 
   <rect
-    width="1000"
-    height="430"
-    rx="24"
-    fill="url(#skyBackground)"
-    stroke="#00ff6638"
+    width="1100"
+    height="360"
+    fill="url(#sky)"
+    rx="20"
   />
 
-  <text
-    x="500"
-    y="75"
-    text-anchor="middle"
-    font-family="monospace"
-    font-size="16"
-    letter-spacing="5"
-    fill="#00ff66"
-    opacity="0.8"
-  >
-    CURRENTLY BUILDING
-  </text>
+  <circle
+    cx="550"
+    cy="100"
+    r="70"
+    fill="#00ff7b"
+    opacity="0.025"
+  />
 
-  <text
-    x="500"
-    y="120"
-    text-anchor="middle"
-    font-family="monospace"
-    font-size="27"
-    font-weight="700"
-    letter-spacing="3"
-    fill="#a0ffba"
-  >
-    SKYLINE
-  </text>
+  <circle
+    cx="550"
+    cy="100"
+    r="35"
+    fill="#00ff7b"
+    opacity="0.04"
+  />
 
-  <line
-    x1="90"
-    y1="155"
-    x2="910"
-    y2="155"
-    stroke="#00ff6630"
+  <path
+    d="M0 300H1100"
+    stroke="#00ff7b"
+    stroke-width="2"
+    opacity="0.3"
   />
 
   
-        <rect
-          x="60"
-          y="190"
-          width="70"
-          height="110"
-          rx="4"
-          fill="#07110a"
-          stroke="#00ff6630"
-        />
+    <g>
+      <rect
+        x="0"
+        y="190"
+        width="70"
+        height="110"
+        fill="#07110b"
+        stroke="#163522"
+        stroke-width="1"
+      />
 
-        
-            <rect
-              x="74"
-              y="210"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.25"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="2s"
-                begin="0s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="88"
-              y="210"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.4"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="3s"
-                begin="-0.3s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="102"
-              y="210"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.55"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="4s"
-                begin="-0.6s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="74"
-              y="233"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.4"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="3s"
-                begin="-0.3s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="88"
-              y="233"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.55"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="4s"
-                begin="-0.6s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="102"
-              y="233"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.7"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="2s"
-                begin="-0.8999999999999999s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="74"
-              y="256"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.55"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="4s"
-                begin="-0.6s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="88"
-              y="256"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.7"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="2s"
-                begin="-0.8999999999999999s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="102"
-              y="256"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.25"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="3s"
-                begin="-1.2s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="74"
-              y="279"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.7"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="2s"
-                begin="-0.8999999999999999s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="88"
-              y="279"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.25"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="3s"
-                begin="-1.2s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="102"
-              y="279"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.4"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="4s"
-                begin="-1.5s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="74"
-              y="302"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.25"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="3s"
-                begin="-1.2s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="88"
-              y="302"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.4"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="4s"
-                begin="-1.5s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="102"
-              y="302"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.55"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="2s"
-                begin="-1.7999999999999998s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="74"
-              y="325"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.4"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="4s"
-                begin="-1.5s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="88"
-              y="325"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.55"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="2s"
-                begin="-1.7999999999999998s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="102"
-              y="325"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.7"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="3s"
-                begin="-2.1s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
       
-        <rect
-          x="145"
-          y="130"
-          width="90"
-          height="170"
-          rx="4"
-          fill="#07110a"
-          stroke="#00ff6630"
-        />
+            <rect
+              x="10"
+              y="205"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:0s"
+            />
+          
+            <rect
+              x="28"
+              y="205"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:0.35s"
+            />
+          
+            <rect
+              x="46"
+              y="205"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:0.7s"
+            />
+          
+            <rect
+              x="10"
+              y="230"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:0.35s"
+            />
+          
+            <rect
+              x="28"
+              y="230"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:0.7s"
+            />
+          
+            <rect
+              x="46"
+              y="230"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:1.0499999999999998s"
+            />
+          
+            <rect
+              x="10"
+              y="255"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:0.7s"
+            />
+          
+            <rect
+              x="28"
+              y="255"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:1.0499999999999998s"
+            />
+          
+            <rect
+              x="46"
+              y="255"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:1.4s"
+            />
+          
+    </g>
+  
+    <g>
+      <rect
+        x="75"
+        y="130"
+        width="55"
+        height="170"
+        fill="#07110b"
+        stroke="#163522"
+        stroke-width="1"
+      />
 
-        
-            <rect
-              x="159"
-              y="150"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.4"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="2s"
-                begin="0s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="179.66666666666666"
-              y="150"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.55"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="3s"
-                begin="-0.3s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="200.33333333333334"
-              y="150"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.7"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="4s"
-                begin="-0.6s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="159"
-              y="173"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.55"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="3s"
-                begin="-0.3s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="179.66666666666666"
-              y="173"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.7"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="4s"
-                begin="-0.6s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="200.33333333333334"
-              y="173"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.25"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="2s"
-                begin="-0.8999999999999999s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="159"
-              y="196"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.7"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="4s"
-                begin="-0.6s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="179.66666666666666"
-              y="196"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.25"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="2s"
-                begin="-0.8999999999999999s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="200.33333333333334"
-              y="196"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.4"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="3s"
-                begin="-1.2s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="159"
-              y="219"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.25"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="2s"
-                begin="-0.8999999999999999s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="179.66666666666666"
-              y="219"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.4"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="3s"
-                begin="-1.2s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="200.33333333333334"
-              y="219"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.55"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="4s"
-                begin="-1.5s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="159"
-              y="242"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.4"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="3s"
-                begin="-1.2s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="179.66666666666666"
-              y="242"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.55"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="4s"
-                begin="-1.5s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="200.33333333333334"
-              y="242"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.7"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="2s"
-                begin="-1.7999999999999998s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="159"
-              y="265"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.55"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="4s"
-                begin="-1.5s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="179.66666666666666"
-              y="265"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.7"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="2s"
-                begin="-1.7999999999999998s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="200.33333333333334"
-              y="265"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.25"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="3s"
-                begin="-2.1s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
       
-        <rect
-          x="250"
-          y="165"
-          width="70"
-          height="135"
-          rx="4"
-          fill="#07110a"
-          stroke="#00ff6630"
-        />
-
-        
             <rect
-              x="264"
-              y="185"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.55"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="2s"
-                begin="0s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="278"
-              y="185"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.7"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="3s"
-                begin="-0.3s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="292"
-              y="185"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.25"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="4s"
-                begin="-0.6s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="264"
-              y="208"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.7"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="3s"
-                begin="-0.3s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="278"
-              y="208"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.25"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="4s"
-                begin="-0.6s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="292"
-              y="208"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.4"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="2s"
-                begin="-0.8999999999999999s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="264"
-              y="231"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.25"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="4s"
-                begin="-0.6s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="278"
-              y="231"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.4"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="2s"
-                begin="-0.8999999999999999s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="292"
-              y="231"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.55"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="3s"
-                begin="-1.2s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="264"
-              y="254"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.4"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="2s"
-                begin="-0.8999999999999999s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="278"
-              y="254"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.55"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="3s"
-                begin="-1.2s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="292"
-              y="254"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.7"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="4s"
-                begin="-1.5s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="264"
-              y="277"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.55"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="3s"
-                begin="-1.2s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="278"
-              y="277"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.7"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="4s"
-                begin="-1.5s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="292"
-              y="277"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.25"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="2s"
-                begin="-1.7999999999999998s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="264"
-              y="300"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.7"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="4s"
-                begin="-1.5s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="278"
-              y="300"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.25"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="2s"
-                begin="-1.7999999999999998s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="292"
-              y="300"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.4"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="3s"
-                begin="-2.1s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-      
-        <rect
-          x="335"
-          y="100"
-          width="110"
-          height="200"
-          rx="4"
-          fill="#07110a"
-          stroke="#00ff6630"
-        />
-
-        
-            <rect
-              x="349"
-              y="120"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.7"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="2s"
-                begin="0s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="376.3333333333333"
-              y="120"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.25"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="3s"
-                begin="-0.3s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="403.6666666666667"
-              y="120"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.4"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="4s"
-                begin="-0.6s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="349"
-              y="143"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.25"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="3s"
-                begin="-0.3s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="376.3333333333333"
-              y="143"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.4"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="4s"
-                begin="-0.6s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="403.6666666666667"
-              y="143"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.55"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="2s"
-                begin="-0.8999999999999999s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="349"
-              y="166"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.4"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="4s"
-                begin="-0.6s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="376.3333333333333"
-              y="166"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.55"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="2s"
-                begin="-0.8999999999999999s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="403.6666666666667"
-              y="166"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.7"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="3s"
-                begin="-1.2s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="349"
-              y="189"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.55"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="2s"
-                begin="-0.8999999999999999s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="376.3333333333333"
-              y="189"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.7"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="3s"
-                begin="-1.2s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="403.6666666666667"
-              y="189"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.25"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="4s"
-                begin="-1.5s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="349"
-              y="212"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.7"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="3s"
-                begin="-1.2s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="376.3333333333333"
-              y="212"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.25"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="4s"
-                begin="-1.5s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="403.6666666666667"
-              y="212"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.4"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="2s"
-                begin="-1.7999999999999998s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="349"
-              y="235"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.25"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="4s"
-                begin="-1.5s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="376.3333333333333"
-              y="235"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.4"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="2s"
-                begin="-1.7999999999999998s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="403.6666666666667"
-              y="235"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.55"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="3s"
-                begin="-2.1s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-      
-        <rect
-          x="460"
-          y="145"
-          width="85"
-          height="155"
-          rx="4"
-          fill="#07110a"
-          stroke="#00ff6630"
-        />
-
-        
-            <rect
-              x="474"
-              y="165"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.25"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="2s"
-                begin="0s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="493"
-              y="165"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.4"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="3s"
-                begin="-0.3s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="512"
-              y="165"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.55"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="4s"
-                begin="-0.6s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="474"
-              y="188"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.4"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="3s"
-                begin="-0.3s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="493"
-              y="188"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.55"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="4s"
-                begin="-0.6s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="512"
-              y="188"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.7"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="2s"
-                begin="-0.8999999999999999s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="474"
-              y="211"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.55"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="4s"
-                begin="-0.6s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="493"
-              y="211"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.7"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="2s"
-                begin="-0.8999999999999999s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="512"
-              y="211"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.25"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="3s"
-                begin="-1.2s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="474"
-              y="234"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.7"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="2s"
-                begin="-0.8999999999999999s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="493"
-              y="234"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.25"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="3s"
-                begin="-1.2s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="512"
-              y="234"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.4"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="4s"
-                begin="-1.5s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="474"
-              y="257"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.25"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="3s"
-                begin="-1.2s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="493"
-              y="257"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.4"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="4s"
-                begin="-1.5s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="512"
-              y="257"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.55"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="2s"
-                begin="-1.7999999999999998s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="474"
-              y="280"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.4"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="4s"
-                begin="-1.5s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="493"
-              y="280"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.55"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="2s"
-                begin="-1.7999999999999998s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="512"
-              y="280"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.7"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="3s"
-                begin="-2.1s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-      
-        <rect
-          x="560"
-          y="80"
-          width="120"
-          height="220"
-          rx="4"
-          fill="#07110a"
-          stroke="#00ff6630"
-        />
-
-        
-            <rect
-              x="574"
-              y="100"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.4"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="2s"
-                begin="0s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="604.6666666666666"
-              y="100"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.55"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="3s"
-                begin="-0.3s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="635.3333333333334"
-              y="100"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.7"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="4s"
-                begin="-0.6s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="574"
-              y="123"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.55"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="3s"
-                begin="-0.3s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="604.6666666666666"
-              y="123"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.7"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="4s"
-                begin="-0.6s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="635.3333333333334"
-              y="123"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.25"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="2s"
-                begin="-0.8999999999999999s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="574"
-              y="146"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.7"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="4s"
-                begin="-0.6s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="604.6666666666666"
-              y="146"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.25"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="2s"
-                begin="-0.8999999999999999s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="635.3333333333334"
-              y="146"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.4"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="3s"
-                begin="-1.2s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="574"
-              y="169"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.25"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="2s"
-                begin="-0.8999999999999999s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="604.6666666666666"
-              y="169"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.4"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="3s"
-                begin="-1.2s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="635.3333333333334"
-              y="169"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.55"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="4s"
-                begin="-1.5s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="574"
-              y="192"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.4"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="3s"
-                begin="-1.2s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="604.6666666666666"
-              y="192"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.55"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="4s"
-                begin="-1.5s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="635.3333333333334"
-              y="192"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.7"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="2s"
-                begin="-1.7999999999999998s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="574"
-              y="215"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.55"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="4s"
-                begin="-1.5s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="604.6666666666666"
-              y="215"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.7"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="2s"
-                begin="-1.7999999999999998s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="635.3333333333334"
-              y="215"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.25"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="3s"
-                begin="-2.1s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-      
-        <rect
-          x="700"
-          y="125"
-          width="90"
-          height="175"
-          rx="4"
-          fill="#07110a"
-          stroke="#00ff6630"
-        />
-
-        
-            <rect
-              x="714"
+              x="85"
               y="145"
-              width="7"
+              width="6"
               height="10"
               rx="1"
-              fill="#00ff66"
-              opacity="0.55"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="2s"
-                begin="0s"
-                repeatCount="indefinite"
-              />
-            </rect>
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:0.35s"
+            />
           
             <rect
-              x="734.6666666666666"
+              x="103"
               y="145"
-              width="7"
+              width="6"
               height="10"
               rx="1"
-              fill="#00ff66"
-              opacity="0.7"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="3s"
-                begin="-0.3s"
-                repeatCount="indefinite"
-              />
-            </rect>
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:0.7s"
+            />
           
             <rect
-              x="755.3333333333334"
+              x="85"
+              y="170"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:0.7s"
+            />
+          
+            <rect
+              x="103"
+              y="170"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:1.0499999999999998s"
+            />
+          
+            <rect
+              x="85"
+              y="195"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:1.0499999999999998s"
+            />
+          
+            <rect
+              x="103"
+              y="195"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:1.4s"
+            />
+          
+            <rect
+              x="85"
+              y="220"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:1.4s"
+            />
+          
+            <rect
+              x="103"
+              y="220"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:1.75s"
+            />
+          
+    </g>
+  
+    <g>
+      <rect
+        x="135"
+        y="175"
+        width="80"
+        height="125"
+        fill="#07110b"
+        stroke="#163522"
+        stroke-width="1"
+      />
+
+      
+            <rect
+              x="145"
+              y="190"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:0.7s"
+            />
+          
+            <rect
+              x="163"
+              y="190"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:1.0499999999999998s"
+            />
+          
+            <rect
+              x="181"
+              y="190"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:1.4s"
+            />
+          
+            <rect
+              x="145"
+              y="215"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:1.0499999999999998s"
+            />
+          
+            <rect
+              x="163"
+              y="215"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:1.4s"
+            />
+          
+            <rect
+              x="181"
+              y="215"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:1.75s"
+            />
+          
+            <rect
+              x="145"
+              y="240"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:1.4s"
+            />
+          
+            <rect
+              x="163"
+              y="240"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:1.75s"
+            />
+          
+            <rect
+              x="181"
+              y="240"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:2.0999999999999996s"
+            />
+          
+    </g>
+  
+    <g>
+      <rect
+        x="220"
+        y="90"
+        width="55"
+        height="210"
+        fill="#07110b"
+        stroke="#163522"
+        stroke-width="1"
+      />
+
+      
+            <rect
+              x="230"
+              y="105"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:1.0499999999999998s"
+            />
+          
+            <rect
+              x="248"
+              y="105"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:1.4s"
+            />
+          
+            <rect
+              x="230"
+              y="130"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:1.4s"
+            />
+          
+            <rect
+              x="248"
+              y="130"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:1.75s"
+            />
+          
+            <rect
+              x="230"
+              y="155"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:1.75s"
+            />
+          
+            <rect
+              x="248"
+              y="155"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:2.0999999999999996s"
+            />
+          
+            <rect
+              x="230"
+              y="180"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:2.0999999999999996s"
+            />
+          
+            <rect
+              x="248"
+              y="180"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:2.4499999999999997s"
+            />
+          
+            <rect
+              x="230"
+              y="205"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:2.4499999999999997s"
+            />
+          
+            <rect
+              x="248"
+              y="205"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:2.8s"
+            />
+          
+            <rect
+              x="230"
+              y="230"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:2.8s"
+            />
+          
+            <rect
+              x="248"
+              y="230"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:3.15s"
+            />
+          
+    </g>
+  
+    <g>
+      <rect
+        x="280"
+        y="150"
+        width="95"
+        height="150"
+        fill="#07110b"
+        stroke="#163522"
+        stroke-width="1"
+      />
+
+      
+            <rect
+              x="290"
+              y="165"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:1.4s"
+            />
+          
+            <rect
+              x="308"
+              y="165"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:1.75s"
+            />
+          
+            <rect
+              x="326"
+              y="165"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:2.0999999999999996s"
+            />
+          
+            <rect
+              x="344"
+              y="165"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:2.4499999999999997s"
+            />
+          
+            <rect
+              x="290"
+              y="190"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:1.75s"
+            />
+          
+            <rect
+              x="308"
+              y="190"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:2.0999999999999996s"
+            />
+          
+            <rect
+              x="326"
+              y="190"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:2.4499999999999997s"
+            />
+          
+            <rect
+              x="344"
+              y="190"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:2.8s"
+            />
+          
+            <rect
+              x="290"
+              y="215"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:2.0999999999999996s"
+            />
+          
+            <rect
+              x="308"
+              y="215"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:2.4499999999999997s"
+            />
+          
+            <rect
+              x="326"
+              y="215"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:2.8s"
+            />
+          
+            <rect
+              x="344"
+              y="215"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:3.15s"
+            />
+          
+            <rect
+              x="290"
+              y="240"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:2.4499999999999997s"
+            />
+          
+            <rect
+              x="308"
+              y="240"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:2.8s"
+            />
+          
+            <rect
+              x="326"
+              y="240"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:3.15s"
+            />
+          
+            <rect
+              x="344"
+              y="240"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:0s"
+            />
+          
+    </g>
+  
+    <g>
+      <rect
+        x="380"
+        y="60"
+        width="70"
+        height="240"
+        fill="#07110b"
+        stroke="#163522"
+        stroke-width="1"
+      />
+
+      
+            <rect
+              x="390"
+              y="75"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:1.75s"
+            />
+          
+            <rect
+              x="408"
+              y="75"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:2.0999999999999996s"
+            />
+          
+            <rect
+              x="426"
+              y="75"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:2.4499999999999997s"
+            />
+          
+            <rect
+              x="390"
+              y="100"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:2.0999999999999996s"
+            />
+          
+            <rect
+              x="408"
+              y="100"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:2.4499999999999997s"
+            />
+          
+            <rect
+              x="426"
+              y="100"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:2.8s"
+            />
+          
+            <rect
+              x="390"
+              y="125"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:2.4499999999999997s"
+            />
+          
+            <rect
+              x="408"
+              y="125"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:2.8s"
+            />
+          
+            <rect
+              x="426"
+              y="125"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:3.15s"
+            />
+          
+            <rect
+              x="390"
+              y="150"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:2.8s"
+            />
+          
+            <rect
+              x="408"
+              y="150"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:3.15s"
+            />
+          
+            <rect
+              x="426"
+              y="150"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:0s"
+            />
+          
+            <rect
+              x="390"
+              y="175"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:3.15s"
+            />
+          
+            <rect
+              x="408"
+              y="175"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:0s"
+            />
+          
+            <rect
+              x="426"
+              y="175"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:0.35s"
+            />
+          
+            <rect
+              x="390"
+              y="200"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:0s"
+            />
+          
+            <rect
+              x="408"
+              y="200"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:0.35s"
+            />
+          
+            <rect
+              x="426"
+              y="200"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:0.7s"
+            />
+          
+    </g>
+  
+    <g>
+      <rect
+        x="455"
+        y="170"
+        width="55"
+        height="130"
+        fill="#07110b"
+        stroke="#163522"
+        stroke-width="1"
+      />
+
+      
+            <rect
+              x="465"
+              y="185"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:2.0999999999999996s"
+            />
+          
+            <rect
+              x="483"
+              y="185"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:2.4499999999999997s"
+            />
+          
+            <rect
+              x="465"
+              y="210"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:2.4499999999999997s"
+            />
+          
+            <rect
+              x="483"
+              y="210"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:2.8s"
+            />
+          
+            <rect
+              x="465"
+              y="235"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:2.8s"
+            />
+          
+            <rect
+              x="483"
+              y="235"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:3.15s"
+            />
+          
+    </g>
+  
+    <g>
+      <rect
+        x="515"
+        y="120"
+        width="90"
+        height="180"
+        fill="#07110b"
+        stroke="#163522"
+        stroke-width="1"
+      />
+
+      
+            <rect
+              x="525"
+              y="135"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:2.4499999999999997s"
+            />
+          
+            <rect
+              x="543"
+              y="135"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:2.8s"
+            />
+          
+            <rect
+              x="561"
+              y="135"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:3.15s"
+            />
+          
+            <rect
+              x="579"
+              y="135"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:0s"
+            />
+          
+            <rect
+              x="525"
+              y="160"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:2.8s"
+            />
+          
+            <rect
+              x="543"
+              y="160"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:3.15s"
+            />
+          
+            <rect
+              x="561"
+              y="160"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:0s"
+            />
+          
+            <rect
+              x="579"
+              y="160"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:0.35s"
+            />
+          
+            <rect
+              x="525"
+              y="185"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:3.15s"
+            />
+          
+            <rect
+              x="543"
+              y="185"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:0s"
+            />
+          
+            <rect
+              x="561"
+              y="185"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:0.35s"
+            />
+          
+            <rect
+              x="579"
+              y="185"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:0.7s"
+            />
+          
+            <rect
+              x="525"
+              y="210"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:0s"
+            />
+          
+            <rect
+              x="543"
+              y="210"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:0.35s"
+            />
+          
+            <rect
+              x="561"
+              y="210"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:0.7s"
+            />
+          
+            <rect
+              x="579"
+              y="210"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:1.0499999999999998s"
+            />
+          
+            <rect
+              x="525"
+              y="235"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:0.35s"
+            />
+          
+            <rect
+              x="543"
+              y="235"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:0.7s"
+            />
+          
+            <rect
+              x="561"
+              y="235"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:1.0499999999999998s"
+            />
+          
+            <rect
+              x="579"
+              y="235"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:1.4s"
+            />
+          
+    </g>
+  
+    <g>
+      <rect
+        x="610"
+        y="80"
+        width="60"
+        height="220"
+        fill="#07110b"
+        stroke="#163522"
+        stroke-width="1"
+      />
+
+      
+            <rect
+              x="620"
+              y="95"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:2.8s"
+            />
+          
+            <rect
+              x="638"
+              y="95"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:3.15s"
+            />
+          
+            <rect
+              x="620"
+              y="120"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:3.15s"
+            />
+          
+            <rect
+              x="638"
+              y="120"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:0s"
+            />
+          
+            <rect
+              x="620"
               y="145"
-              width="7"
+              width="6"
               height="10"
               rx="1"
-              fill="#00ff66"
+              fill="#00ff7b"
               opacity="0.25"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="4s"
-                begin="-0.6s"
-                repeatCount="indefinite"
-              />
-            </rect>
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:0s"
+            />
           
             <rect
-              x="714"
-              y="168"
-              width="7"
+              x="638"
+              y="145"
+              width="6"
               height="10"
               rx="1"
-              fill="#00ff66"
-              opacity="0.7"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="3s"
-                begin="-0.3s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="734.6666666666666"
-              y="168"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
+              fill="#00ff7b"
               opacity="0.25"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="4s"
-                begin="-0.6s"
-                repeatCount="indefinite"
-              />
-            </rect>
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:0.35s"
+            />
           
             <rect
-              x="755.3333333333334"
-              y="168"
-              width="7"
+              x="620"
+              y="170"
+              width="6"
               height="10"
               rx="1"
-              fill="#00ff66"
-              opacity="0.4"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="2s"
-                begin="-0.8999999999999999s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="714"
-              y="191"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
+              fill="#00ff7b"
               opacity="0.25"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="4s"
-                begin="-0.6s"
-                repeatCount="indefinite"
-              />
-            </rect>
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:0.35s"
+            />
           
             <rect
-              x="734.6666666666666"
-              y="191"
-              width="7"
+              x="638"
+              y="170"
+              width="6"
               height="10"
               rx="1"
-              fill="#00ff66"
-              opacity="0.4"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="2s"
-                begin="-0.8999999999999999s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="755.3333333333334"
-              y="191"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.55"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="3s"
-                begin="-1.2s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="714"
-              y="214"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.4"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="2s"
-                begin="-0.8999999999999999s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="734.6666666666666"
-              y="214"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.55"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="3s"
-                begin="-1.2s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="755.3333333333334"
-              y="214"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.7"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="4s"
-                begin="-1.5s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="714"
-              y="237"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.55"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="3s"
-                begin="-1.2s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="734.6666666666666"
-              y="237"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.7"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="4s"
-                begin="-1.5s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="755.3333333333334"
-              y="237"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
+              fill="#00ff7b"
               opacity="0.25"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="2s"
-                begin="-1.7999999999999998s"
-                repeatCount="indefinite"
-              />
-            </rect>
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:0.7s"
+            />
           
             <rect
-              x="714"
-              y="260"
-              width="7"
+              x="620"
+              y="195"
+              width="6"
               height="10"
               rx="1"
-              fill="#00ff66"
-              opacity="0.7"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="4s"
-                begin="-1.5s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="734.6666666666666"
-              y="260"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
+              fill="#00ff7b"
               opacity="0.25"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="2s"
-                begin="-1.7999999999999998s"
-                repeatCount="indefinite"
-              />
-            </rect>
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:0.7s"
+            />
           
             <rect
-              x="755.3333333333334"
-              y="260"
-              width="7"
+              x="638"
+              y="195"
+              width="6"
               height="10"
               rx="1"
-              fill="#00ff66"
-              opacity="0.4"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="3s"
-                begin="-2.1s"
-                repeatCount="indefinite"
-              />
-            </rect>
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:1.0499999999999998s"
+            />
           
-      
-        <rect
-          x="805"
-          y="170"
-          width="70"
-          height="130"
-          rx="4"
-          fill="#07110a"
-          stroke="#00ff6630"
-        />
+            <rect
+              x="620"
+              y="220"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:1.0499999999999998s"
+            />
+          
+            <rect
+              x="638"
+              y="220"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:1.4s"
+            />
+          
+    </g>
+  
+    <g>
+      <rect
+        x="675"
+        y="155"
+        width="110"
+        height="145"
+        fill="#07110b"
+        stroke="#163522"
+        stroke-width="1"
+      />
 
-        
-            <rect
-              x="819"
-              y="190"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.7"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="2s"
-                begin="0s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="833"
-              y="190"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.25"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="3s"
-                begin="-0.3s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="847"
-              y="190"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.4"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="4s"
-                begin="-0.6s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="819"
-              y="213"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.25"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="3s"
-                begin="-0.3s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="833"
-              y="213"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.4"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="4s"
-                begin="-0.6s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="847"
-              y="213"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.55"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="2s"
-                begin="-0.8999999999999999s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="819"
-              y="236"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.4"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="4s"
-                begin="-0.6s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="833"
-              y="236"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.55"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="2s"
-                begin="-0.8999999999999999s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="847"
-              y="236"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.7"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="3s"
-                begin="-1.2s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="819"
-              y="259"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.55"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="2s"
-                begin="-0.8999999999999999s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="833"
-              y="259"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.7"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="3s"
-                begin="-1.2s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="847"
-              y="259"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.25"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="4s"
-                begin="-1.5s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="819"
-              y="282"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.7"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="3s"
-                begin="-1.2s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="833"
-              y="282"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.25"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="4s"
-                begin="-1.5s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="847"
-              y="282"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.4"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="2s"
-                begin="-1.7999999999999998s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="819"
-              y="305"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.25"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="4s"
-                begin="-1.5s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="833"
-              y="305"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.4"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="2s"
-                begin="-1.7999999999999998s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="847"
-              y="305"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.55"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="3s"
-                begin="-2.1s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
       
-        <rect
-          x="890"
-          y="115"
-          width="55"
-          height="185"
-          rx="4"
-          fill="#07110a"
-          stroke="#00ff6630"
-        />
+            <rect
+              x="685"
+              y="170"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:3.15s"
+            />
+          
+            <rect
+              x="703"
+              y="170"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:0s"
+            />
+          
+            <rect
+              x="721"
+              y="170"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:0.35s"
+            />
+          
+            <rect
+              x="739"
+              y="170"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:0.7s"
+            />
+          
+            <rect
+              x="757"
+              y="170"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:1.0499999999999998s"
+            />
+          
+            <rect
+              x="685"
+              y="195"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:0s"
+            />
+          
+            <rect
+              x="703"
+              y="195"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:0.35s"
+            />
+          
+            <rect
+              x="721"
+              y="195"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:0.7s"
+            />
+          
+            <rect
+              x="739"
+              y="195"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:1.0499999999999998s"
+            />
+          
+            <rect
+              x="757"
+              y="195"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:1.4s"
+            />
+          
+            <rect
+              x="685"
+              y="220"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:0.35s"
+            />
+          
+            <rect
+              x="703"
+              y="220"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:0.7s"
+            />
+          
+            <rect
+              x="721"
+              y="220"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:1.0499999999999998s"
+            />
+          
+            <rect
+              x="739"
+              y="220"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:1.4s"
+            />
+          
+            <rect
+              x="757"
+              y="220"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:1.75s"
+            />
+          
+            <rect
+              x="685"
+              y="245"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:0.7s"
+            />
+          
+            <rect
+              x="703"
+              y="245"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:1.0499999999999998s"
+            />
+          
+            <rect
+              x="721"
+              y="245"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:1.4s"
+            />
+          
+            <rect
+              x="739"
+              y="245"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:1.75s"
+            />
+          
+            <rect
+              x="757"
+              y="245"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:2.0999999999999996s"
+            />
+          
+    </g>
+  
+    <g>
+      <rect
+        x="790"
+        y="105"
+        width="70"
+        height="195"
+        fill="#07110b"
+        stroke="#163522"
+        stroke-width="1"
+      />
 
-        
-            <rect
-              x="904"
-              y="135"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.25"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="2s"
-                begin="0s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="913"
-              y="135"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.4"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="3s"
-                begin="-0.3s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="922"
-              y="135"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.55"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="4s"
-                begin="-0.6s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="904"
-              y="158"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.4"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="3s"
-                begin="-0.3s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="913"
-              y="158"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.55"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="4s"
-                begin="-0.6s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="922"
-              y="158"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.7"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="2s"
-                begin="-0.8999999999999999s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="904"
-              y="181"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.55"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="4s"
-                begin="-0.6s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="913"
-              y="181"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.7"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="2s"
-                begin="-0.8999999999999999s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="922"
-              y="181"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.25"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="3s"
-                begin="-1.2s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="904"
-              y="204"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.7"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="2s"
-                begin="-0.8999999999999999s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="913"
-              y="204"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.25"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="3s"
-                begin="-1.2s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="922"
-              y="204"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.4"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="4s"
-                begin="-1.5s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="904"
-              y="227"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.25"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="3s"
-                begin="-1.2s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="913"
-              y="227"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.4"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="4s"
-                begin="-1.5s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="922"
-              y="227"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.55"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="2s"
-                begin="-1.7999999999999998s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="904"
-              y="250"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.4"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="4s"
-                begin="-1.5s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="913"
-              y="250"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.55"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="2s"
-                begin="-1.7999999999999998s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
-            <rect
-              x="922"
-              y="250"
-              width="7"
-              height="10"
-              rx="1"
-              fill="#00ff66"
-              opacity="0.7"
-            >
-              <animate
-                attributeName="opacity"
-                values="0.15;0.9;0.3;0.15"
-                dur="3s"
-                begin="-2.1s"
-                repeatCount="indefinite"
-              />
-            </rect>
-          
       
+            <rect
+              x="800"
+              y="120"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:0s"
+            />
+          
+            <rect
+              x="818"
+              y="120"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:0.35s"
+            />
+          
+            <rect
+              x="836"
+              y="120"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:0.7s"
+            />
+          
+            <rect
+              x="800"
+              y="145"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:0.35s"
+            />
+          
+            <rect
+              x="818"
+              y="145"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:0.7s"
+            />
+          
+            <rect
+              x="836"
+              y="145"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:1.0499999999999998s"
+            />
+          
+            <rect
+              x="800"
+              y="170"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:0.7s"
+            />
+          
+            <rect
+              x="818"
+              y="170"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:1.0499999999999998s"
+            />
+          
+            <rect
+              x="836"
+              y="170"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:1.4s"
+            />
+          
+            <rect
+              x="800"
+              y="195"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:1.0499999999999998s"
+            />
+          
+            <rect
+              x="818"
+              y="195"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:1.4s"
+            />
+          
+            <rect
+              x="836"
+              y="195"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:1.75s"
+            />
+          
+            <rect
+              x="800"
+              y="220"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:1.4s"
+            />
+          
+            <rect
+              x="818"
+              y="220"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:1.75s"
+            />
+          
+            <rect
+              x="836"
+              y="220"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:2.0999999999999996s"
+            />
+          
+    </g>
+  
+    <g>
+      <rect
+        x="865"
+        y="165"
+        width="95"
+        height="135"
+        fill="#07110b"
+        stroke="#163522"
+        stroke-width="1"
+      />
 
-  <line
-    x1="0"
-    y1="300"
-    x2="1000"
-    y2="300"
-    stroke="#00ff66"
-    stroke-width="2"
-    opacity="0.35"
-  />
+      
+            <rect
+              x="875"
+              y="180"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:0.35s"
+            />
+          
+            <rect
+              x="893"
+              y="180"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:0.7s"
+            />
+          
+            <rect
+              x="911"
+              y="180"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:1.0499999999999998s"
+            />
+          
+            <rect
+              x="929"
+              y="180"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:1.4s"
+            />
+          
+            <rect
+              x="875"
+              y="205"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:0.7s"
+            />
+          
+            <rect
+              x="893"
+              y="205"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:1.0499999999999998s"
+            />
+          
+            <rect
+              x="911"
+              y="205"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:1.4s"
+            />
+          
+            <rect
+              x="929"
+              y="205"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:1.75s"
+            />
+          
+            <rect
+              x="875"
+              y="230"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:1.0499999999999998s"
+            />
+          
+            <rect
+              x="893"
+              y="230"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:1.4s"
+            />
+          
+            <rect
+              x="911"
+              y="230"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:1.75s"
+            />
+          
+            <rect
+              x="929"
+              y="230"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:2.0999999999999996s"
+            />
+          
+    </g>
+  
+    <g>
+      <rect
+        x="965"
+        y="125"
+        width="70"
+        height="175"
+        fill="#07110b"
+        stroke="#163522"
+        stroke-width="1"
+      />
+
+      
+            <rect
+              x="975"
+              y="140"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:0.7s"
+            />
+          
+            <rect
+              x="993"
+              y="140"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:1.0499999999999998s"
+            />
+          
+            <rect
+              x="1011"
+              y="140"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:1.4s"
+            />
+          
+            <rect
+              x="975"
+              y="165"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:1.0499999999999998s"
+            />
+          
+            <rect
+              x="993"
+              y="165"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:1.4s"
+            />
+          
+            <rect
+              x="1011"
+              y="165"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:1.75s"
+            />
+          
+            <rect
+              x="975"
+              y="190"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:1.4s"
+            />
+          
+            <rect
+              x="993"
+              y="190"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:1.75s"
+            />
+          
+            <rect
+              x="1011"
+              y="190"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:2.0999999999999996s"
+            />
+          
+            <rect
+              x="975"
+              y="215"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:1.75s"
+            />
+          
+            <rect
+              x="993"
+              y="215"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:2.0999999999999996s"
+            />
+          
+            <rect
+              x="1011"
+              y="215"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:2.4499999999999997s"
+            />
+          
+            <rect
+              x="975"
+              y="240"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:2.0999999999999996s"
+            />
+          
+            <rect
+              x="993"
+              y="240"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:2.4499999999999997s"
+            />
+          
+            <rect
+              x="1011"
+              y="240"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:2.8s"
+            />
+          
+    </g>
+  
+    <g>
+      <rect
+        x="1040"
+        y="190"
+        width="60"
+        height="110"
+        fill="#07110b"
+        stroke="#163522"
+        stroke-width="1"
+      />
+
+      
+            <rect
+              x="1050"
+              y="205"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:1.0499999999999998s"
+            />
+          
+            <rect
+              x="1068"
+              y="205"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:1.4s"
+            />
+          
+            <rect
+              x="1050"
+              y="230"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:1.4s"
+            />
+          
+            <rect
+              x="1068"
+              y="230"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:1.75s"
+            />
+          
+            <rect
+              x="1050"
+              y="255"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:1.75s"
+            />
+          
+            <rect
+              x="1068"
+              y="255"
+              width="6"
+              height="10"
+              rx="1"
+              fill="#00ff7b"
+              opacity="0.25"
+              style="animation:windowPulse 3s ease-in-out infinite;animation-delay:2.0999999999999996s"
+            />
+          
+    </g>
+  
+
+  <g class="signal">
+    <circle
+      cx="550"
+      cy="60"
+      r="5"
+      fill="#00ff7b"
+      filter="url(#skyGlow)"
+    />
+
+    <path
+      d="M550 65V300"
+      stroke="#00ff7b"
+      stroke-width="1"
+      opacity="0.25"
+    />
+  </g>
 
   <text
-    x="500"
-    y="350"
+    x="550"
+    y="335"
     text-anchor="middle"
+    fill="#00ff7b"
     font-family="monospace"
-    font-size="15"
+    font-size="13"
     letter-spacing="2"
-    fill="#6eff94"
   >
-    CHECK IT OUT →
+    CHECK IT OUT → ALIAKBARHYDER9.PYTHONANYWHERE.COM
   </text>
-
-  <text
-    x="500"
-    y="385"
-    text-anchor="middle"
-    font-family="monospace"
-    font-size="21"
-    font-weight="700"
-    fill="#00ff66"
-    filter="url(#skyGlow)"
-  >
-    aliakbarhyder9.pythonanywhere.com
-  </text>
-
 </svg>
