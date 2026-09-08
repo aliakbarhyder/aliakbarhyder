@@ -2,6 +2,7 @@
      ALI AKBAR HYDER
      PROFILE README
      ============================================================ -->
+![Banner](assets/banner.png)
 
 <div align="center">
 
