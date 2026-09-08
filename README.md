@@ -1,3 +1,472 @@
+<!--
+╔══════════════════════════════════════════════════════════════════╗
+║                    ALI AKBAR HYDER                              ║
+║              AI • CODE • EXPERIMENTATION                        ║
+╚══════════════════════════════════════════════════════════════════╝
+-->
+
+<p align="center">
+  <img
+    src="assets/banner.png"
+    width="100%"
+    alt="Ali Akbar Hyder"
+  />
+</p>
+
+<br>
+
+<p align="center">
+  <img
+    src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=22&duration=2600&pause=900&color=DC143C&center=true&vCenter=true&width=900&height=65&lines=AI+Enthusiast+%7C+Developer;Building+ideas+into+real+software;Exploring+AI%2C+automation+%26+creative+technology;Always+learning.+Always+building."
+    alt="Animated introduction"
+  />
+</p>
+
+<p align="center">
+  <a href="https://github.com/aliakbarhyder">
+    <img
+      src="https://img.shields.io/github/followers/aliakbarhyder?style=for-the-badge&logo=github&label=FOLLOWERS&labelColor=0B0B0B&color=8B0000"
+      alt="GitHub Followers"
+    />
+  </a>
+
+  <a href="https://github.com/aliakbarhyder?tab=repositories">
+    <img
+      src="https://img.shields.io/github/stars/aliakbarhyder?style=for-the-badge&logo=github&label=STARS&labelColor=0B0B0B&color=8B0000"
+      alt="GitHub Stars"
+    />
+  </a>
+</p>
+
+<p align="center">
+  <sub>
+    <code>STATUS: ONLINE</code>
+    &nbsp;•&nbsp;
+    <code>MODE: BUILDING</code>
+    &nbsp;•&nbsp;
+    <code>SYSTEM: EXPERIMENTAL</code>
+  </sub>
+</p>
+
+---
+
+# 👨‍💻 About Me
+
+I'm an **AI enthusiast and developer** who enjoys taking interesting ideas and turning them into real software.
+
+My interests sit at the intersection of **artificial intelligence, software engineering, automation, computer vision, human–computer interaction, and creative technology**.
+
+I enjoy experimenting with new tools, figuring out how things work, and building projects that are useful, interesting, or occasionally held together by determination.
+
+```text
+┌────────────────────────────────────────────────────────────────────┐
+│                                                                    │
+│  IMAGINE → EXPERIMENT → BUILD → BREAK → FIX → PUBLISH → IMPROVE   │
+│                                                                    │
+│                         ↳ repeat indefinitely                      │
+│                                                                    │
+└────────────────────────────────────────────────────────────────────┘
+```
+
+### ⚡ Current Interests
+
+* 🤖 Artificial Intelligence & LLMs
+* 💻 Software & Web Development
+* 👁️ Computer Vision
+* ⚙️ Automation
+* 🧠 Human–Computer Interaction
+* 🔬 Emerging Technologies
+* 🚀 Turning concepts into working projects
+
+---
+
+# 🛠️ Tech Stack
+
+### Languages
+
+<p align="center">
+  <img
+    src="https://skillicons.dev/icons?i=python,js,html,css,cpp&theme=dark"
+    alt="Programming Languages"
+  />
+</p>
+
+### Frameworks & Development
+
+<p align="center">
+  <img
+    src="https://skillicons.dev/icons?i=react,nextjs,nodejs,flask,supabase,git,github,vscode&theme=dark"
+    alt="Frameworks and Development Tools"
+  />
+</p>
+
+### AI & LLM Ecosystem
+
+<p align="center">
+
+`Ollama`
+ • 
+`OpenRouter`
+ • 
+`Groq`
+ • 
+`Claude`
+ • 
+`LLMs`
+ • 
+`AI APIs`
+
+</p>
+
+---
+
+# 🚀 Selected Projects
+
+<table>
+<tr>
+
+<td width="50%" valign="top">
+
+## 🪟 Airglass
+
+A computer-vision interface designed around **camera and hand interaction**.
+
+The project explores more natural ways of interacting with software beyond traditional mouse-and-keyboard controls.
+
+**Focus**
+
+`Computer Vision` · `HCI` · `AI` · `Interactive UI`
+
+</td>
+
+<td width="50%" valign="top">
+
+## ☁️ Skyline
+
+A lightweight weather application focused on making weather information **simple, accessible, and pleasant to use**.
+
+**Built with**
+
+`Python` · `Flask` · `HTML` · `CSS`
+
+<br>
+
+### 🌐 Check it out →
+
+<a href="https://aliakbarhyder9.pythonanywhere.com">
+  <img
+    src="https://img.shields.io/badge/OPEN%20SKYLINE-8B0000?style=for-the-badge&logo=python&logoColor=white"
+    alt="Open Skyline"
+  />
+</a>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="50%" valign="top">
+
+## 🧠 JARVIS
+
+An experimental personal AI assistant exploring the combination of **LLMs, APIs, automation, and interactive interfaces**.
+
+**Focus**
+
+`AI` · `LLMs` · `Automation` · `APIs` · `UI/UX`
+
+</td>
+
+<td width="50%" valign="top">
+
+## 🔭 What's Next?
+
+Something is always being designed, tested, rebuilt, optimized, or accidentally broken.
+
+```text
+STATUS: ACTIVE
+QUEUE: EXPANDING
+IDEAS: DETECTED
+CHAOS: MANAGED*
+```
+
+<sub>*Probably.</sub>
+
+</td>
+
+</tr>
+</table>
+
+---
+
+# ⚡ BUILDING SOMETHING...
+
+<p align="center">
+  <img
+    src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=21&duration=2200&pause=700&color=DC143C&center=true&vCenter=true&width=900&height=70&lines=BUILDING...;PONDERING...;THINKING+VERY+HARD...;DEBUGGING...;DECODING...;EXECUTING...;OPTIMIZING...;REFACTORING...;EXPERIMENTING...;ANALYZING...;COMPILING...;RECOMPILING...;BREAKING+THINGS...;FIXING+THINGS...;DISCOMBOBULATING...;RECOMBOBULATING...;COOKING+UP+SOMETHING...;SUMMONING+THE+BUG+HUNTER...;CONSULTING+THE+RUBBER+DUCK...;SEARCHING+FOR+THE+MISSING+SEMICOLON...;TRUSTING+THE+PROCESS...;QUESTIONING+THE+PROCESS...;INCREASING+THE+AURA...;MAXIMIZING+VIBES...;DEPLOYING+SOMETHING...;SHIP+IT%3F"
+    alt="Currently building"
+  />
+</p>
+
+<p align="center">
+
+```text
+╔══════════════════════════════════════════════════════════════════╗
+║                                                                  ║
+║                  ◉ LIVE DEVELOPMENT SYSTEM                       ║
+║                                                                  ║
+║   [✓] IDEA DETECTED                                              ║
+║   [✓] QUESTIONABLE PLAN CREATED                                  ║
+║   [✓] CODE WRITTEN                                              ║
+║   [✓] SOMETHING BROKE                                           ║
+║   [✓] SOMETHING FIXED                                           ║
+║   [•] SOMETHING ELSE HAPPENING...                               ║
+║                                                                  ║
+║   BUILD PROGRESS                                                 ║
+║                                                                  ║
+║   ████████████████████████████████████████░░░░░░░░░  87%         ║
+║                                                                  ║
+║   ESTIMATED COMPLETION: EVENTUALLY                               ║
+║                                                                  ║
+╚══════════════════════════════════════════════════════════════════╝
+```
+
+</p>
+
+<p align="center">
+  <img
+    src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&size=15&duration=1800&pause=600&color=777777&center=true&vCenter=true&width=850&height=45&lines=%5B+SYSTEM+%5D+Processing+idea...;%5B+SYSTEM+%5D+Generating+questionable+architecture...;%5B+SYSTEM+%5D+Checking+for+bugs...;%5B+SYSTEM+%5D+Bug+found.;%5B+SYSTEM+%5D+Pretending+it+was+intentional...;%5B+SYSTEM+%5D+Consulting+documentation...;%5B+SYSTEM+%5D+Increasing+aura...;%5B+SYSTEM+%5D+Still+building...;%5B+SYSTEM+%5D+Something+cool+is+happening...;%5B+SYSTEM+%5D+Do+not+interrupt+the+cooking."
+    alt="Live development system"
+  />
+</p>
+
+---
+
+## 🔄 CURRENT PROCESS
+
+```text
+              ┌───────────────┐
+              │     IDEA      │
+              └───────┬───────┘
+                      ▼
+              ┌───────────────┐
+              │    PONDER     │
+              └───────┬───────┘
+                      ▼
+              ┌───────────────┐
+              │     BUILD     │
+              └───────┬───────┘
+                      ▼
+              ┌───────────────┐
+              │     BREAK     │
+              └───────┬───────┘
+                      ▼
+              ┌───────────────┐
+              │      FIX      │
+              └───────┬───────┘
+                      ▼
+              ┌───────────────┐
+              │    PUBLISH    │
+              └───────┬───────┘
+                      │
+                      └───────────↻
+```
+
+<p align="center">
+  <sub>
+    <code>REPEAT UNTIL SOMETHING AWESOME EXISTS</code>
+  </sub>
+</p>
+
+---
+
+# 🌀 DEVELOPMENT AURA
+
+<p align="center">
+
+```text
+                       ✦
+                ·             ·
+           ✧         BUILD        ✧
+         ·        SOMETHING         ·
+           ✧      INTERESTING     ✧
+                ·             ·
+                       ✦
+
+
+              AURA: ██████████ 100%
+```
+
+</p>
+
+<p align="center">
+  <img
+    src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=17&duration=1800&pause=600&color=8B0000&center=true&vCenter=true&width=750&height=50&lines=✦+AURA+INCREASING...;✦+CREATIVITY+CHARGING...;✦+IDEAS+DETECTED...;✦+SYSTEM+ENTERING+FLOW+STATE...;✦+MAXIMUM+COOKING+CAPACITY...;✦+AURA+LEVEL%3A+UNREASONABLE."
+    alt="Development aura"
+  />
+</p>
+
+---
+
+# 🧠 CURRENTLY EXPLORING
+
+<p align="center">
+  <img
+    src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&size=18&duration=2400&pause=800&color=DC143C&center=true&vCenter=true&width=850&lines=Large+Language+Models;AI-powered+Applications;Computer+Vision;Automation;Human-Computer+Interaction;Developer+Tooling;The+next+interesting+thing..."
+    alt="Currently exploring"
+  />
+</p>
+
+```text
+                         ARTIFICIAL INTELLIGENCE
+                                  │
+                   ┌──────────────┼──────────────┐
+                   ▼              ▼              ▼
+                 LLMs      COMPUTER VISION   AUTOMATION
+                   │              │              │
+                   └──────────────┼──────────────┘
+                                  │
+                                  ▼
+                           AI APPLICATIONS
+                                  │
+                                  ▼
+                            USEFUL SOFTWARE
+                                  │
+                                  ▼
+                              NEXT IDEA
+```
+
+---
+
+# 📊 GITHUB ANALYTICS
+
+<p align="center">
+  <img
+    src="https://github-readme-stats.vercel.app/api?username=aliakbarhyder&show_icons=true&hide_border=true&theme=transparent&rank_icon=github&include_all_commits=true"
+    height="180"
+    alt="GitHub statistics"
+  />
+
+<img
+ src="https://github-readme-stats.vercel.app/api/top-langs/?username=aliakbarhyder&layout=compact&hide_border=true&theme=transparent"
+ height="180"
+ alt="Top languages"
+/>
+
+</p>
+
+---
+
+# 🔥 CONTRIBUTION STREAK
+
+<p align="center">
+  <img
+    src="https://streak-stats.demolab.com?user=aliakbarhyder&hide_border=true&theme=transparent&mode=weekly"
+    alt="GitHub contribution streak"
+  />
+</p>
+
+---
+
+# 📈 ACTIVITY
+
+<p align="center">
+  <img
+    src="https://github-readme-activity-graph.vercel.app/graph?username=aliakbarhyder&bg_color=00000000&color=DC143C&line=DC143C&point=FFFFFF&area=true&hide_border=true"
+    width="96%"
+    alt="GitHub activity graph"
+  />
+</p>
+
+---
+
+# 🧪 DEVELOPER DIAGNOSTICS
+
+```text
+┌──────────────────────────────────────────────────────────────┐
+│                                                              │
+│   CPU         █████████░░░░░░░░░░░  "probably fine"         │
+│                                                              │
+│   RAM         ████████████████░░░░  "too many tabs"         │
+│                                                              │
+│   IDEAS       ████████████████████  OVERFLOWING              │
+│                                                              │
+│   BUGS        █████████████████░░░  INVESTIGATING            │
+│                                                              │
+│   FOCUS       █████████████░░░░░░░  LOADING...               │
+│                                                              │
+│   AURA        ████████████████████  MAXIMUM                  │
+│                                                              │
+└──────────────────────────────────────────────────────────────┘
+```
+
+<p align="center">
+  <img
+    src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&size=14&duration=2000&pause=600&color=777777&center=true&vCenter=true&width=800&lines=diagnostic%3A+everything+is+fine;diagnostic%3A+everything+is+probably+fine;diagnostic%3A+who+wrote+this+code%3F;diagnostic%3A+oh...+it+was+me.;diagnostic%3A+deploying+confidence...;diagnostic%3A+increasing+aura..."
+    alt="Developer diagnostics"
+  />
+</p>
+
+---
+
+# 💡 PHILOSOPHY
+
+<p align="center">
+  <img
+    src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&size=17&duration=3000&pause=1100&color=FFFFFF&center=true&vCenter=true&width=850&height=55&lines=Curiosity+drives+innovation.;Every+bug+is+a+lesson.;Build+things+you'd+actually+use.;The+best+way+to+learn+is+to+build.;Great+ideas+usually+start+as+experiments."
+    alt="Philosophy"
+  />
+</p>
+
+<p align="center">
+
+> **Learn → Experiment → Build → Break → Fix → Publish → Improve → Repeat**
+
+</p>
+
+---
+
+# 🌐 CONNECT
+
+<p align="center">
+  <a href="https://github.com/aliakbarhyder">
+    <img
+      src="https://img.shields.io/badge/GitHub-111111?style=for-the-badge&logo=github&logoColor=white"
+      alt="GitHub"
+    />
+  </a>
+
+  <a href="https://www.linkedin.com/in/aliakbarhyder">
+    <img
+      src="https://img.shields.io/badge/LinkedIn-8B0000?style=for-the-badge&logo=linkedin&logoColor=white"
+      alt="LinkedIn"
+    />
+  </a>
+</p>
+
+---
+
+<p align="center">
+  <img
+    src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&size=14&duration=3000&pause=1000&color=777777&center=true&vCenter=true&width=800&height=50&lines=Thanks+for+visiting.;Feel+free+to+explore+my+repositories.;Something+interesting+is+probably+being+built.;See+you+in+the+terminal."
+    alt="Closing message"
+  />
+</p>
+
+<p align="center">
+  <sub>
+    Built with curiosity, code, experimentation, and an unreasonable number of terminal windows.
+  </sub>
+</p>
+
+<p align="center">
+  <img
+    src="https://capsule-render.vercel.app/api?type=waving&height=140&section=footer&animation=twinkling&color=0:000000,50:2B0000,100:8B0000"
+    width="100%"
+    alt=""
+  />
+</p>
 <!-- ============================================================= -->
 
 <!--                    ALI AKBAR HYDER                            -->
