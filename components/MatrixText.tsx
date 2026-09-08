@@ -8,158 +8,97 @@ import {
 } from "react";
 
 interface LetterState {
-  char: string;
-  isMatrix: boolean;
-  isSpace: boolean;
+  value: string;
+  matrix: boolean;
 }
 
 interface MatrixTextProps {
-  text: string;
-  repeatDelay?: number;
-  letterInterval?: number;
-  animationDuration?: number;
+  text?: string;
+  interval?: number;
 }
 
 export default function MatrixText({
-  text,
-  repeatDelay = 5000,
-  letterInterval = 80,
-  animationDuration = 450,
+  text = "ALI AKBAR HYDER",
+  interval = 5000,
 }: MatrixTextProps) {
-
   const [letters, setLetters] =
-    useState<LetterState[]>(() =>
-      text.split("").map((char) => ({
-        char,
-        isMatrix: false,
-        isSpace: char === " ",
+    useState<LetterState[]>(
+      text.split("").map((value) => ({
+        value,
+        matrix: false,
       }))
     );
 
-  const randomCharacter = useCallback(() => {
-    return Math.random() > 0.5
-      ? "0"
-      : "1";
-  }, []);
+  const scramble = useCallback(() => {
+    const original = text.split("");
+
+    original.forEach((character, index) => {
+      if (character === " ") return;
+
+      setTimeout(() => {
+        setLetters((previous) => {
+          const next = [...previous];
+
+          next[index] = {
+            value:
+              Math.random() > 0.5
+                ? "1"
+                : "0",
+            matrix: true,
+          };
+
+          return next;
+        });
+      }, index * 70);
+
+      setTimeout(() => {
+        setLetters((previous) => {
+          const next = [...previous];
+
+          next[index] = {
+            value: character,
+            matrix: false,
+          };
+
+          return next;
+        });
+      }, index * 70 + 500);
+    });
+  }, [text]);
 
   useEffect(() => {
+    scramble();
 
-    let timeout: ReturnType<typeof setTimeout>;
+    const timer =
+      window.setInterval(scramble, interval);
 
-    const runAnimation = () => {
-
-      text.split("").forEach(
-        (_, index) => {
-
-          setTimeout(() => {
-
-            if (text[index] === " ") return;
-
-            setLetters((previous) => {
-
-              const next = [...previous];
-
-              next[index] = {
-                ...next[index],
-                char: randomCharacter(),
-                isMatrix: true,
-              };
-
-              return next;
-            });
-
-            setTimeout(() => {
-
-              setLetters((previous) => {
-
-                const next = [...previous];
-
-                next[index] = {
-                  char: text[index],
-                  isMatrix: false,
-                  isSpace:
-                    text[index] === " ",
-                };
-
-                return next;
-              });
-
-            }, animationDuration);
-
-          }, index * letterInterval);
-
-        }
-      );
-
-      timeout = setTimeout(
-        runAnimation,
-        repeatDelay +
-          text.length * letterInterval
-      );
-    };
-
-    runAnimation();
-
-    return () => {
-      clearTimeout(timeout);
-    };
-
-  }, [
-    animationDuration,
-    letterInterval,
-    randomCharacter,
-    repeatDelay,
-    text,
-  ]);
+    return () =>
+      window.clearInterval(timer);
+  }, [interval, scramble]);
 
   return (
-    <div className="flex items-center justify-center">
-
-      <div className="flex flex-wrap justify-center">
-
-        {letters.map(
-          (letter, index) => (
-
-            <motion.span
-              key={index}
-
-              animate={{
-                color: letter.isMatrix
-                  ? "#00ff66"
-                  : "#ffffff",
-
-                textShadow:
-                  letter.isMatrix
-                    ? "0 0 14px rgba(0,255,102,0.8)"
-                    : "none",
-              }}
-
-              transition={{
-                duration: 0.15,
-              }}
-
-              className="
-                inline-block
-                w-[1ch]
-                text-center
-                font-mono
-                font-bold
-                text-3xl
-                md:text-5xl
-              "
-            >
-
-              {letter.isSpace
-                ? "\u00A0"
-                : letter.char}
-
-            </motion.span>
-
-          )
-        )}
-
-      </div>
-
+    <div className="flex flex-wrap justify-center font-mono">
+      {letters.map((letter, index) => (
+        <motion.span
+          key={index}
+          animate={{
+            color: letter.matrix
+              ? "#00ff66"
+              : "#d8ffe4",
+            textShadow: letter.matrix
+              ? "0 0 14px rgba(0,255,102,0.9)"
+              : "0 0 0px rgba(0,0,0,0)",
+          }}
+          transition={{
+            duration: 0.15,
+          }}
+          className="inline-block text-3xl font-bold tracking-[0.18em] md:text-5xl"
+        >
+          {letter.value === " "
+            ? "\u00A0"
+            : letter.value}
+        </motion.span>
+      ))}
     </div>
   );
 }
