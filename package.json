@@ -1,8 +1,8 @@
 {
-  "name": "aliakbarhyder-profile",
-  "private": true,
+  "name": "aliakbarhyder",
   "version": "1.0.0",
-  "description": "GitHub profile README assets and source components",
+  "private": true,
+  "description": "GitHub profile README assets",
   "type": "module",
   "scripts": {
     "generate": "node scripts/generate-assets.mjs"
