@@ -6,92 +6,87 @@ import {
 } from "react";
 
 interface Particle {
-
   x: number;
-
   y: number;
-
   speed: number;
-
   life: number;
-
+  maxLife: number;
 }
 
 export default function FlowField() {
-
   const canvasRef =
-    useRef<HTMLCanvasElement>(
-      null
-    );
+    useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
-
     const canvas =
       canvasRef.current;
 
-    if (!canvas)
-      return;
+    if (!canvas) return;
 
     const context =
       canvas.getContext("2d");
 
-    if (!context)
-      return;
+    if (!context) return;
 
     let animationFrame = 0;
 
     let width = 0;
-
     let height = 0;
 
-    let particles: Particle[] = [];
+    const particles: Particle[] = [];
+
+    const createParticle =
+      (): Particle => ({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        speed:
+          0.3 + Math.random() * 1.2,
+        life: 0,
+        maxLife:
+          150 + Math.random() * 300,
+      });
 
     const resize = () => {
-
       width =
-        window.innerWidth;
+        canvas.clientWidth;
 
       height =
-        window.innerHeight;
+        canvas.clientHeight;
+
+      const ratio =
+        window.devicePixelRatio || 1;
 
       canvas.width =
-        width;
+        width * ratio;
 
       canvas.height =
-        height;
+        height * ratio;
 
-      particles =
-        Array.from(
-          {
-            length: 350,
-          },
+      context.setTransform(
+        ratio,
+        0,
+        0,
+        ratio,
+        0,
+        0
+      );
 
-          () => ({
-            x:
-              Math.random() *
-              width,
+      particles.length = 0;
 
-            y:
-              Math.random() *
-              height,
-
-            speed:
-              0.3 +
-              Math.random() *
-                0.8,
-
-            life:
-              Math.random() *
-              100,
-          })
+      for (
+        let index = 0;
+        index < 350;
+        index++
+      ) {
+        particles.push(
+          createParticle()
         );
-
+      }
     };
 
     const animate = () => {
-
       context.fillStyle =
-        "rgba(5,8,10,0.08)";
+        "rgba(2, 6, 4, 0.08)";
 
       context.fillRect(
         0,
@@ -101,19 +96,16 @@ export default function FlowField() {
       );
 
       particles.forEach(
-        (
-          particle
-        ) => {
-
+        (particle, index) => {
           const angle =
             Math.sin(
-              particle.x *
-                0.003
-            ) +
+              particle.x * 0.004
+            ) *
+              Math.PI +
             Math.cos(
-              particle.y *
-                0.003
-            );
+              particle.y * 0.003
+            ) *
+              Math.PI;
 
           particle.x +=
             Math.cos(angle) *
@@ -123,38 +115,45 @@ export default function FlowField() {
             Math.sin(angle) *
             particle.speed;
 
+          particle.life++;
+
           if (
+            particle.life >
+              particle.maxLife ||
             particle.x < 0 ||
             particle.x > width ||
             particle.y < 0 ||
             particle.y > height
           ) {
+            particles[index] =
+              createParticle();
 
-            particle.x =
-              Math.random() *
-              width;
-
-            particle.y =
-              Math.random() *
-              height;
-
+            return;
           }
+
+          const progress =
+            particle.life /
+            particle.maxLife;
+
+          const alpha =
+            Math.sin(
+              progress * Math.PI
+            ) * 0.45;
 
           context.beginPath();
 
           context.arc(
             particle.x,
             particle.y,
-            1,
+            1.2,
             0,
             Math.PI * 2
           );
 
           context.fillStyle =
-            "rgba(0,217,255,0.55)";
+            `rgba(0,255,102,${alpha})`;
 
           context.fill();
-
         }
       );
 
@@ -162,7 +161,6 @@ export default function FlowField() {
         requestAnimationFrame(
           animate
         );
-
     };
 
     resize();
@@ -175,7 +173,6 @@ export default function FlowField() {
     animate();
 
     return () => {
-
       cancelAnimationFrame(
         animationFrame
       );
@@ -184,29 +181,14 @@ export default function FlowField() {
         "resize",
         resize
       );
-
     };
-
   }, []);
 
   return (
-
     <canvas
-
-      ref={
-        canvasRef
-      }
-
-      className="
-        pointer-events-none
-        fixed
-        inset-0
-        -z-10
-        h-full
-        w-full
-      "
-
+      ref={canvasRef}
+      className="absolute inset-0 h-full w-full"
+      aria-hidden="true"
     />
-
   );
 }
